@@ -1,27 +1,27 @@
 package org.adastraeducation.liquiz;
 
 public class Image implements Displayable {
-	private String imgQuestion;
 	private String width;
 	private String height;
-	private String [] ans;
+	private String [] name;
 	
 	public Image(){
 		ans = null;		
 	}
+	//TODO: Add Image constructor here!!
+	
+	
 	public void writeHTML(StringBuilder b){
-		b.append("<img src='" + imgQuestion + "'style = width:"+ width + "px;height:"+ height + "px>");
-		b.append("<select>");
-		b.append("<input type='radio'" + ans + "<br>");
-		b.append("</select>");
+		b.append("<img src='" + name + "' style = width:"+ width + "px;height:"+ height + "px>");
 	}
 	// to do : how to represent image in JavaScript
+	//TODO: image id should not be hardcoded to 1!!!
 	public void writeJS(StringBuilder b){
-		b.append("new Image(1, '" + ans + "')");
+		b.append("image(1, '" + ans + "')");
 	}
 	
 	public void writeXML(StringBuilder b) {
-		b.append("<A correct='" + ans + "'> </A>");
+		b.append("<image name='").append( nameA correct='" + ans + "'> </A>");
 	}
 
 }
