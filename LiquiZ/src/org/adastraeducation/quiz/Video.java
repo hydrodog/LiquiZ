@@ -1,31 +1,34 @@
 package org.adastraeducation.quiz;
 
-public class Video implements Displayables {
-	private String videoQuestion;
+public class Video implements Displayable {
+	private String video;
 	private String width;
 	private String height;
 	private String type;
-	private String [] ans;
 	
-	public Video(){
-		ans = null;		
+	public Video(String video){
+		this.video = video;		
+	}
+	public Video(String video, String width, String height, String type){
+		this.video= video;
+		this.height= height;
+		this.width= width;
+		this.type = type;
 	}
 	//<source src="movie.mp4" type="video/mp4">
 	//<source src="movie.ogg" type="video/ogg">
-	public void WriteHTML(StringBuilder b){
+	public void writeHTML(StringBuilder b){
 		b.append("<video width="+ width +" height="+ height +" controls>");
-		b.append("<img src=" + videoQuestion +  "type ="+ type + ">");
-		b.append("<select>");
-		b.append("<input type=\"radio\"" + ans + "<br>");
+		b.append("<img src=" + video +  "type ="+ type + ">");
 		b.append("</video>");
 	}
 	// to do : how to represent image in JavaScript
-	public void WriteJS(StringBuilder b){
-		b.append("new Image(1, \"" + ans + "\")");
+	public void writeJS(StringBuilder b){
+		b.append("new Image(1, \"" + video + "\")");
 	}
 	
-	public void WriteXML(StringBuilder b) {
-		b.append("<A correct=\"" + ans + "\"> </A>");
+	public void writeXML(StringBuilder b) {
+		b.append("<A correct=\"" + video + "\"> </A>");
 	}
 
 }
