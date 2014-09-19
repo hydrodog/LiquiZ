@@ -1,28 +1,28 @@
 package org.adastraeducation.quiz;
-public class Text implements Displayables {
+public class Text implements Displayable {
 	
-	private String answer;
+	private String text;
 	
 	public String getTagName() { return "Text"; }
 	
 	@Override
-	public void WriteHTML(StringBuilder b) {
+	public void writeHTML(StringBuilder b) {
 		// TODO Auto-generated method stub
 		b.append("<select>");
-		b.append("<input type=\"radio\""+ answer + "name=\"dynosaur1\">" + "<br>");	
+		b.append("<input type=\"radio\""+ text + "name=\"dynosaur1\">" + "<br>");	
 		b.append("</select>");
 		
 	}
 	@Override
-	public void WriteJS(StringBuilder b) {
+	public void writeJS(StringBuilder b) {
 		// TODO Auto-generated method stub
-		b.append("new Text(1, \"" + answer + "\")" );
+		b.append("new Text(1, \"" + text + "\")" );
 
 	}
 	@Override
-	public void WriteXML(StringBuilder b) {
+	public void writeXML(StringBuilder b) {
 		// TODO Auto-generated method stub
-		b.append("<A correct= "+ answer +"</A>");
+		b.append("<A correct= "+ text +"</A>");
 
 		
 	}
