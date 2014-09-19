@@ -16,7 +16,7 @@ public class StdChoice extends Answer {
 			b.append("</select>");
 		}
 	}
-	public void WriteJS(StringBuilder b){
+	public void writeJS(StringBuilder b){
 		b.append("");
 	}
 	
