@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class Quiz implements Displayable {
 	public static Random r;
+	
 	static {
 		/*
 		 *  if there are any random numbers to be gotten,
@@ -12,6 +13,12 @@ public class Quiz implements Displayable {
 		 *  Quiz.r.nextInteger()
 		 */
 		r = new Random();
+	}
+	public static int random(int a, int b) {
+		return a + r.nextInt(b-a);
+	}
+	public static double random(double a, double b) {
+		return a + r.nextDouble() * (b-a);
 	}
 	private ArrayList<QuestionContainer> qContainers;
 	private Policies Plc ; 
