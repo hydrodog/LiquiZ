@@ -55,22 +55,28 @@ public class Equation implements Displayable {
     private static final Pattern wordPattern =
     		Pattern.compile("[\\W]|([\\w]*)");
 
-	public  Expression parseRPN(ArrayList<String> s){
+    /*TODO: We can do much better than a switch statement,
+    * but it would require a hash map and lots of little objects
+    */
+    //TODO: CHeck if binary ops are backgwards? a b - ????
+	public  Expression parseRPN(ArrayList<String> s) {
 		Stack<Expression> stack = new Stack<Expression>();
-		for(int i=0;i<s.size();i++){
+		for(int i=0; i<s.size(); i++){
 			String temp = s.get(i);
-			if(Functions.MATHFUNCTIONS.contains(temp)){
+			if (Functions.MATHFUNCTIONS.contains(temp)) {
 				Expression op1 ;
 				Expression op2 ;
 				switch(temp){
 				case "+": 
 					op2=stack.pop();
 					op1=stack.pop();
-					stack.push( new Plus(op1,op2));break;
+					stack.push(new Plus(op1,op2));
+					break;
 				case "-": 
 					op2=stack.pop();
 					op1=stack.pop();
-					stack.push( new Minus(op1,op2));break;
+					stack.push( new Minus(op1,op2));
+					break;
 				case "*": 
 					op2=stack.pop();
 					op1=stack.pop();
