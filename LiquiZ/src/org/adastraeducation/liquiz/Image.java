@@ -9,6 +9,15 @@ public class Image implements Displayable {
 		name = null;		
 	}
 	//TODO: Add Image constructor here!!
+	public Image(String image){
+		this.image= image;
+	}
+	
+	public Image(String image, String width, String height){
+		this.image= image;
+		this.height= height;
+		this.width= width;
+	}
 	
 	
 	public void writeHTML(StringBuilder b){
@@ -17,7 +26,7 @@ public class Image implements Displayable {
 	// to do : how to represent image in JavaScript
 	//TODO: image id should not be hardcoded to 1!!!
 	public void writeJS(StringBuilder b){
-		b.append("image(1, '" + name + "')");
+		b.append("image('" + name + "')");
 	}
 	
 	public void writeXML(StringBuilder b) {
