@@ -9,12 +9,12 @@ public class Image implements Displayable {
 		name = null;		
 	}
 	//TODO: Add Image constructor here!!
-	public Image(String image){
-		this.image= image;
+	public Image(String name){
+		this.name= name;
 	}
 	
-	public Image(String image, String width, String height){
-		this.image= image;
+	public Image(String [] name, String width, String height){
+		this.name= name;
 		this.height= height;
 		this.width= width;
 	}
