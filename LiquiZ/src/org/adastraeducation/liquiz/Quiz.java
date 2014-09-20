@@ -2,7 +2,6 @@ package org.adastraeducation.liquiz;
 
 import java.util.ArrayList;
 
-
 public class Quiz implements Displayable {
 	private ArrayList<QuestionContainer> qContainers;
 	private Policies Plc ;  

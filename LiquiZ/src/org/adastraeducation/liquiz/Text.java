@@ -3,6 +3,9 @@ package org.adastraeducation.liquiz;
 public class Text implements Displayable {
 	private String text;
 	
+	public Text(String text) {
+		this.text = text;
+	}
 	public String getTagName() { return "Text"; }
 	
 	@Override
