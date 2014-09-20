@@ -3,7 +3,7 @@ package org.adastraeducation.liquiz;
 public class Image implements Displayable {
 	private String width;
 	private String height;
-	private String [] name;
+	private String name;
 	
 	public Image(){
 		name = null;		
@@ -13,7 +13,7 @@ public class Image implements Displayable {
 		this.name= name;
 	}
 	
-	public Image(String [] name, String width, String height){
+	public Image(String name, String width, String height){
 		this.name= name;
 		this.height= height;
 		this.width= width;
