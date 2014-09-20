@@ -1,8 +1,8 @@
 package org.adastraeducation.liquiz.test;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
+import java.beans.XMLEncoder;
+import java.beans.XMLDecoder;
 
 import org.adastraeducation.liquiz.*;
 public class Test {
@@ -29,6 +29,8 @@ public class Test {
 	}
 	public static Quiz test1() {
 		Quiz quiz = new Quiz();
+		quiz.setId(1);
+		quiz.setName("Animals");
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
 				new Text("What is a dinosaur?"),
@@ -65,11 +67,25 @@ public class Test {
 		fw.write(trailer);
 		fw.close();
 	}
+	public static void writeXML(String filename, Quiz quiz) throws IOException {
+		XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(filename)));
+		enc.writeObject(quiz);
+		enc.close();
+	}
+
+	public static Quiz readXML(String filename) throws IOException {
+		XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(filename)));
+		Quiz q = (Quiz)dec.readObject();
+		dec.close();
+		return q;
+	}
+
 	public static void main(String[] args) throws IOException {
 		StringBuilder b = new StringBuilder(65536);
 		Quiz quiz = test1();
 		quiz.writeHTML(b);
 		writeHTML("output/test1.html", b);
+		writeXML("output/test1.xml", quiz);
 	}
 
 }

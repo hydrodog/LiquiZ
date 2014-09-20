@@ -1,6 +1,5 @@
 package org.adastraeducation.liquiz;
 public class Policies {
-	
 	private int attemptNum;
 	private boolean timed;
 	private int duration;

@@ -4,7 +4,25 @@ import java.util.ArrayList;
 
 public class Quiz implements Displayable {
 	private ArrayList<QuestionContainer> qContainers;
-	private Policies Plc ;  
+	private Policies Plc ; 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	private int id; // unique id for db and XML
+	private String name; // display name, possibly per Course?
 	
 	public Quiz() {
 		qContainers = new ArrayList<QuestionContainer>();
