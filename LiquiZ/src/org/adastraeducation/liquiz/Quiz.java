@@ -1,8 +1,18 @@
 package org.adastraeducation.liquiz;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Quiz implements Displayable {
+	public static Random r;
+	static {
+		/*
+		 *  if there are any random numbers to be gotten,
+		 *  everyone should get them out of the quiz like:
+		 *  Quiz.r.nextInteger()
+		 */
+		r = new Random();
+	}
 	private ArrayList<QuestionContainer> qContainers;
 	private Policies Plc ; 
 	public int getId() {
