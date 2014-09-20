@@ -49,10 +49,14 @@ public class Equation implements Displayable {
 
 		return parseRPN(rpn);
 	}
+	// Precompile all regular expressions used in parsing
+	private static final Pattern parseDigits =
+			Pattern.compile("^[0-9]+$");
+    private static final Pattern wordPattern =
+    		Pattern.compile("[\\W]|([\\w]*)");
 
 	public  Expression parseRPN(ArrayList<String> s){
 		Stack<Expression> stack = new Stack<Expression>();
-		String regex = "^[0-9]+$";
 		for(int i=0;i<s.size();i++){
 			String temp = s.get(i);
 			if(Functions.MATHFUNCTIONS.contains(temp)){
@@ -107,9 +111,8 @@ public class Equation implements Displayable {
 			else if(temp.equals(""))
 				;
 			else{
-				Pattern p = Pattern.compile(regex);
-				Matcher m = p.matcher(temp);
-				if(m.matches()){
+				Matcher m = parseDigits.matcher(temp);
+				if (m.matches()){
 					double x = Double.parseDouble(temp);
 					stack.push(new Constant(x));
 				}
@@ -119,16 +122,13 @@ public class Equation implements Displayable {
 			}
 		}
 		return stack.pop();
-
 	}
 	
 	public ArrayList<String> parseQuestion(String question){
 		
 		ArrayList<String> s = new ArrayList<String>();
 		
-		String regex ="[\\W]|([\\w]*)";
-	    Pattern p = Pattern.compile(regex);
-	    Matcher m = p.matcher(question);    
+	    Matcher m = wordPattern.matcher(question);    
 	    
 	    while(m.find()){
 	    	s.add(m.group());
@@ -159,24 +159,19 @@ public class Equation implements Displayable {
 	public void writeHTML(StringBuilder b) {	
 		func.infix(b);
 		b.append("<p><br>");
-		b.append("<input type=\"text\" ").append("\"><br>");
+		b.append("<input type='text' ").append("'><br>");
 	}
 
 	@Override
 	public void writeXML(StringBuilder b) {
-		
-		b.append("<Question question=\">");
+		b.append("<Equation question='");
 		func.infix(b);
-		b.append("\"></Question>");
-		
+		b.append("'></Equation>");
 	}
 
 	@Override
 	public void writeJS(StringBuilder b) {
-		// TODO Auto-generated method stub
 		
 	}
-
-
 	
 }
