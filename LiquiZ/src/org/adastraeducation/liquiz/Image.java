@@ -6,7 +6,7 @@ public class Image implements Displayable {
 	private String [] name;
 	
 	public Image(){
-		ans = null;		
+		name = null;		
 	}
 	//TODO: Add Image constructor here!!
 	
@@ -17,11 +17,11 @@ public class Image implements Displayable {
 	// to do : how to represent image in JavaScript
 	//TODO: image id should not be hardcoded to 1!!!
 	public void writeJS(StringBuilder b){
-		b.append("image(1, '" + ans + "')");
+		b.append("image(1, '" + name + "')");
 	}
 	
 	public void writeXML(StringBuilder b) {
-		b.append("<image name='").append( nameA correct='" + ans + "'> </A>");
+		b.append("<image id='???' name='/>");
 	}
 
 }

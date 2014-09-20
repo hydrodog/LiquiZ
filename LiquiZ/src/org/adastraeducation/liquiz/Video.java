@@ -1,4 +1,4 @@
-package org.adastraeducation.quiz;
+package org.adastraeducation.liquiz;
 
 public class Video implements Displayable {
 	private String video;
@@ -24,7 +24,7 @@ public class Video implements Displayable {
 	}
 	// to do : how to represent image in JavaScript
 	public void writeJS(StringBuilder b){
-		b.append("new Image(1, \"" + video + "\")");
+		b.append("video(1, '" + video + "')");
 	}
 	
 	public void writeXML(StringBuilder b) {

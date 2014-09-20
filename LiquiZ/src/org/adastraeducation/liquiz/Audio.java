@@ -1,4 +1,4 @@
-package org.adastraeducation.quiz;
+package org.adastraeducation.liquiz;
 
 public class Audio implements Displayable {
 	private String audio;
