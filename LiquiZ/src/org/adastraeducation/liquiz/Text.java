@@ -10,10 +10,7 @@ public class Text implements Displayable {
 	
 	@Override
 	public void writeHTML(StringBuilder b) {
-		b.append("<select>");
-		b.append("<input type=\"radio\""+ text + "name=\"dynosaur1\">" + "<br>");	
-		b.append("</select>");
-		
+		b.append("<p>").append(text).append("</p>");
 	}
 	@Override
 	public void writeJS(StringBuilder b) {

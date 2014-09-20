@@ -53,7 +53,7 @@ public class Quiz implements Displayable {
 		for(QuestionContainer qc : this.qContainers) {
 			qc.writeHTML(b);
 		}
-		b.append("</div>");
+		b.append("</div>\n");
 	}
 	
 	public void writeXML (StringBuilder b) {
