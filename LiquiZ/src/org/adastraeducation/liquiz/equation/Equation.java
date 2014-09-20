@@ -12,7 +12,6 @@ import org.adastraeducation.liquiz.*;
  */
 
 public class Equation implements Displayable {
-
 	private Expression func;
 	private double correctAnswer;
 	private HashMap<String,Var> variables;
@@ -30,6 +29,11 @@ public class Equation implements Displayable {
 		correctAnswer=func.eval();
 	}
 	
+	public Equation(Expression func){
+		this.func = func;
+		this.variables = new HashMap<String,Var>();
+		correctAnswer=func.eval();
+	}
 	public void setExpression(Expression e){
 		this.func=e;
 		correctAnswer=func.eval();

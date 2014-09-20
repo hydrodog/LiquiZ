@@ -18,11 +18,11 @@ public class Image implements Displayable {
 		this.height= height;
 		this.width= width;
 	}
-	
-	
+
 	public void writeHTML(StringBuilder b){
 		b.append("<img src='" + name + "' style = width:"+ width + "px;height:"+ height + "px>");
 	}
+
 	// to do : how to represent image in JavaScript
 	//TODO: image id should not be hardcoded to 1!!!
 	public void writeJS(StringBuilder b){

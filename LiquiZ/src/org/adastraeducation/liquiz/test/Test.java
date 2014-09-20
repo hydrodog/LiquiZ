@@ -1,4 +1,5 @@
 package org.adastraeducation.liquiz.test;
+import org.adastraeducation.liquiz.equation.*;
 import java.io.*;
 import java.util.Scanner;
 import java.beans.XMLEncoder;
@@ -44,6 +45,26 @@ public class Test {
 			}
 		);
 		quiz.addQuestionContainer(qc);
+
+		Equation eq = new Equation
+		(
+			new Plus
+			(
+				new Var("x", 0, 99, 1),	
+				new Var("y", 0, 99, 1)	
+			)
+		);
+		qc = new QuestionContainer(
+			new Displayable[] {
+				new Text("What is "),
+				eq,
+				new Text("?"),
+				new FillIn(3, 1, 1)
+			}
+			);
+			quiz.addQuestionContainer(qc);
+
+		
 		return quiz;
 	}
 	/*
