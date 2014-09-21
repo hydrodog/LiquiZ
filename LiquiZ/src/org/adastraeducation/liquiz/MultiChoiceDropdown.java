@@ -31,12 +31,13 @@ public class MultiChoiceDropdown extends Question {
 	public String getTagName() { return "MultiChoice";}
 
 	public void writeHTML(StringBuilder b ){
+		b.append("<select class='dropdown'>\n");
 		for (int i = 0; i < answers.length; i++){
-			b.append("<select>");
-			b.append("<option value='"  + answers[i].getAnswer() + "'>  </option> ");
-			b.append("</select>");
+			b.append("<option value='").append(answers[i].getAnswer())
+			.append("'>").append(answers[i].getAnswer()).append("</option>\n");
 			b.append("</br>");
         }
+		b.append("</select>\n");
 	}
 	public void writeJS(StringBuilder b ){
 		b.append("multichoice([");

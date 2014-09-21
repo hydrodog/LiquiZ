@@ -28,7 +28,7 @@ public class FillIn extends Question {
 
 	@Override
 	public void writeHTML(StringBuilder b) {
-		b.append("<input class='fillin' type='text'>\n");
+		b.append("<input name='").append(getId()).append("' class='fillin' type='text'>\n");
 	}
 
 	@Override

@@ -2,14 +2,14 @@ package org.adastraeducation.liquiz;
 
 public class Video implements Displayable {
 	private String video;
-	private String width;
-	private String height;
+	private int width;
+	private int height;
 	private String type;
 	
 	public Video(String video){
 		this.video = video;		
 	}
-	public Video(String video, String width, String height, String type){
+	public Video(String video, int width, int height, String type){
 		this.video= video;
 		this.height= height;
 		this.width= width;
@@ -18,9 +18,10 @@ public class Video implements Displayable {
 	//<source src="movie.mp4" type="video/mp4">
 	//<source src="movie.ogg" type="video/ogg">
 	public void writeHTML(StringBuilder b){
-		b.append("<video width="+ width +" height="+ height +" controls>");
-		b.append("<img src=" + video +  "type ="+ type + ">");
-		b.append("</video>");
+		b.append("<video width='").append(width).append("' height='").
+			append(height).append("' controls>");
+		b.append("<img src='" + video +  "' type ='"+ type + "'>");
+		b.append("</video>\n");
 	}
 	// to do : how to represent image in JavaScript
 	public void writeJS(StringBuilder b){

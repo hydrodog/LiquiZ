@@ -25,11 +25,11 @@ public class QuestionContainer implements Displayable {
 	}
 
 	public void writeHTML (StringBuilder b) {
-		b.append("<div class='question'>");
+		b.append("<div class='question'>\n");
 		for (Displayable d : displayables) {
 			d.writeHTML(b);
 		}
-		b.append("</div>");
+		b.append("</div>\n");
 	}
 
 	public void writeXML (StringBuilder b) {

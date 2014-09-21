@@ -20,6 +20,14 @@ public class Quiz implements Displayable {
 	public static double random(double a, double b) {
 		return a + r.nextDouble() * (b-a);
 	}
+	// TODO: make this escape strings in single quotes
+	public static String escapeJS(String s) {
+		return s;
+	}
+	// TODO: make this escape strings in single quotes
+	public static String escapeXML(String s) {
+		return s;
+	}
 	private ArrayList<QuestionContainer> qContainers;
 	private Policies Plc ; 
 	public int getId() {

@@ -54,6 +54,7 @@ public class Test {
 				new Var("y", 0, 99, 1)	
 			)
 		);
+		
 		qc = new QuestionContainer(
 			new Displayable[] {
 				new Text("What is "),
@@ -62,8 +63,16 @@ public class Test {
 				new FillIn(3, 1, 1)
 			}
 			);
-			quiz.addQuestionContainer(qc);
+		quiz.addQuestionContainer(qc);
 
+		qc = new QuestionContainer(
+				new Displayable[] {
+					new Video("1.mpg"),
+					new Text("Describe the main character in the video in 200 words or less"),
+					new Essay()
+				}
+			);
+		quiz.addQuestionContainer(qc);
 		
 		return quiz;
 	}
@@ -83,7 +92,8 @@ public class Test {
 	public static void writeHTML(String filename, StringBuilder buf) throws IOException {
 		FileWriter fw = new FileWriter(filename);
 		fw.write(header);
-		fw.write(buf.toString());
+		String s = buf.toString();
+		fw.write(s);
 		buf.setLength(0);
 		fw.write(trailer);
 		fw.close();
