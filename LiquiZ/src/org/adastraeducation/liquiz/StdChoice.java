@@ -31,7 +31,7 @@ public class StdChoice {
 
 	public void writeHTML(StringBuilder b) {
 		for (int i = 0; i < answers.length; i++)
-			b.append("<input type=\"radio\" name='").append(name).append("'>")
+			b.append("<input type='radio' name='").append(name).append("'>")
 					.append(answers[i].getAnswer()).append("<br>");
 	}
 

@@ -33,7 +33,7 @@ public class Quiz implements Displayable {
 		return s;
 	}
 	private ArrayList<QuestionContainer> qContainers;
-	private Policies Plc ; 
+	private Policies policy ; 
 	public int getId() {
 		return id;
 	}
@@ -55,32 +55,32 @@ public class Quiz implements Displayable {
 	
 	public Quiz() {
 		qContainers = new ArrayList<QuestionContainer>();
-		Plc = new Policies();
+		policy = new Policies();
 	}
 	
 	public Quiz(Policies plc) {
 		this.qContainers = new ArrayList<QuestionContainer>();
-		this.Plc = plc;
+		policy = plc;
 	}
 	
 	public Policies getPolicies(){
-		return this.Plc;
+		return policy;
 	}
 	
 	public void setPolicies(int num,boolean timed, int duration, 
 			boolean showAns,boolean scored,int grade, boolean shuffle, String accessCode){
-		this.Plc.setAttemptNum(num);
-		this.Plc.setTimed(timed);
-		this.Plc.setDuration(duration);
-		this.Plc.setShowAns(showAns);
-		this.Plc.setScored(scored);
-		this.Plc.setGrade(grade);
-		this.Plc.setShuffle(shuffle);
-		this.Plc.setAccessCode(accessCode);
+		policy.setAttemptNum(num);
+		policy.setTimed(timed);
+		policy.setDuration(duration);
+		policy.setShowAns(showAns);
+		policy.setScored(scored);
+		policy.setGrade(grade);
+		policy.setShuffle(shuffle);
+		policy.setAccessCode(accessCode);
 	}
 	
 	public ArrayList<QuestionContainer> getQuestionContainers() {
-		return this.qContainers;
+		return qContainers;
 	}
 	
 	public void addQuestionContainer(QuestionContainer qc) {
