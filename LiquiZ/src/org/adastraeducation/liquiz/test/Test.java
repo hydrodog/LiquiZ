@@ -50,8 +50,8 @@ public class Test {
 		(
 			new Plus
 			(
-				new Var("x", 0, 99, 1),	
-				new Var("y", 0, 99, 1)	
+				new Var("x", 0, 1, 99),	
+				new Var("y", 0, 1, 99)	
 			)
 		);
 		

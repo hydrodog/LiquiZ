@@ -20,6 +20,10 @@ public class Quiz implements Displayable {
 	public static double random(double a, double b) {
 		return a + r.nextDouble() * (b-a);
 	}
+	public static double random(double a, double b, double step) {
+		int n = (int)((b-a)/step) + 1;
+		return a + r.nextInt(n) * step;
+	}
 	// TODO: make this escape strings in single quotes
 	public static String escapeJS(String s) {
 		return s;

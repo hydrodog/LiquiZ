@@ -62,10 +62,10 @@ public class Equation implements Displayable {
     /*TODO: We can do much better than a switch statement,
     * but it would require a hash map and lots of little objects
     */
-    //TODO: CHeck if binary ops are backgwards? a b - ????
+    //TODO: Check if binary ops are backgwards? a b - ????
 	public  Expression parseRPN(ArrayList<String> s) {
 		Stack<Expression> stack = new Stack<Expression>();
-		for(int i=0; i<s.size(); i++){
+		for(int i = 0; i<s.size(); i++){
 			String temp = s.get(i);
 			if (Functions.MATHFUNCTIONS.contains(temp)) {
 				Expression op1 ;
@@ -135,15 +135,11 @@ public class Equation implements Displayable {
 	}
 	
 	public ArrayList<String> parseQuestion(String question){
-		
 		ArrayList<String> s = new ArrayList<String>();
-		
 	    Matcher m = wordPattern.matcher(question);    
-	    
 	    while(m.find()){
 	    	s.add(m.group());
 	    }
-		
 		return s;
 	}
 	
@@ -167,7 +163,7 @@ public class Equation implements Displayable {
 
 	@Override
 	public void writeHTML(StringBuilder b) {	
-		func.infix(b);
+		func.infixReplaceVar(b);
 		b.append("<p><br>");
 		b.append("<input type='text' ").append("'><br>");
 	}

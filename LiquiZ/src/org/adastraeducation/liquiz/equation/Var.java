@@ -1,5 +1,7 @@
 package org.adastraeducation.liquiz.equation;
 
+import org.adastraeducation.liquiz.Quiz;
+
 public class Var implements Expression{
 	private double operand;
 	private String name;
@@ -12,7 +14,7 @@ public class Var implements Expression{
 		this.min=min;
 		this.step=step;
 		this.max=max;
-		this.pickRandom();
+		Quiz.random(min,  max, step);
 	}
 	
 	public Var(String name, double x){
@@ -20,10 +22,6 @@ public class Var implements Expression{
 		this.operand=x;
 	}
 	
-	public void pickRandom(){
-		int num = (int)((max-min)/step);
-		operand = min+(int)(Math.random()*num)*step;
-	}
 	public double eval(){
 		return operand;
 	}
