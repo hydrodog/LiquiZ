@@ -25,6 +25,7 @@ public class MultiChoiceDropdown extends Question {
 	public MultiChoiceDropdown(int level, int points,
 			String stdChoiceName) {
 			super(level,points);
+			//TODO: FIX THIS! look up stdChoice!
 			this.answers = answers.clone();
 	}
 	

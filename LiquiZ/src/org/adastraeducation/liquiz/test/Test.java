@@ -74,6 +74,15 @@ public class Test {
 			);
 		quiz.addQuestionContainer(qc);
 		
+		qc = new QuestionContainer(
+				new Displayable[] {
+					new Text("Listen to the audio clip and write down the words"),
+					new Audio("1.mp3"),
+					new FillIn(5,1,1)
+				}
+			);
+		quiz.addQuestionContainer(qc);
+
 		return quiz;
 	}
 	/*
