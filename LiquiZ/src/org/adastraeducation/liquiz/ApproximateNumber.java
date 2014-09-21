@@ -1,7 +1,6 @@
 package org.adastraeducation.liquiz;
 
-
-public class ApproximateNumber extends FillIn{
+public class ApproximateNumber extends FillIn {
 	private double number;
 	private double appro;
 	
@@ -13,10 +12,7 @@ public class ApproximateNumber extends FillIn{
 	
 	
 	public boolean equal(double target){
-		if(number-appro<=target&&target<=number+appro)
-			return true;
-		else
-			return false;
+		return number-appro <= target && target <= number+appro;
 	}
 	
 	public double getNumber(){
@@ -24,7 +20,7 @@ public class ApproximateNumber extends FillIn{
 	}
 	
 	public void setNumber(double number){
-		this.number=number;
+		this.number = number;
 	}
 	
 	public double getAppro(){
@@ -32,6 +28,6 @@ public class ApproximateNumber extends FillIn{
 	}
 	
 	public void setAppro(double appro){
-		this.appro=appro;
+		this.appro = appro;
 	}
 }
