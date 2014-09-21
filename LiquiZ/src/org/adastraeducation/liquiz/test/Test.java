@@ -83,13 +83,20 @@ public class Test {
 			);
 		quiz.addQuestionContainer(qc);
 
-		qc = new Response(
-				new Displayable[] {
-					new Text("Listen to the audio clip and write down the words"),
-					new Audio("1.mp3"),
-					new FillIn(5,1,1)
-				}
-			);
+		// create two random 3x3 matrices filled with integers [-3..3]
+		Matrix m1 = new Matrix(3,3,-3,3);
+		Matrix m2 = new Matrix(3,3,-3,3);
+		// create a 3x3 matrix worth 1 point, level 1
+		MatrixQuestion m3 = new MatrixQuestion(1, 1, 3, 3);
+		quiz.addQuestionContainer(qc = new QuestionContainer(
+			new Displayable[] {
+				new Text("Solve the matrix addition"),
+				m1,
+				new Text("+"),
+				m2,
+				m3
+			}
+		));
 
 		return quiz;
 	}

@@ -10,7 +10,7 @@ public class Text implements Displayable {
 	
 	@Override
 	public void writeHTML(StringBuilder b) {
-		b.append("<p>\n").append(text).append("\n</p>\n");
+		b.append(text);
 	}
 	@Override
 	public void writeJS(StringBuilder b) {
