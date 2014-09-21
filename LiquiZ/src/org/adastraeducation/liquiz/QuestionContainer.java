@@ -16,12 +16,12 @@ public class QuestionContainer implements Displayable {
 		return this.displayables;
 	}
 
-	public void add(Question q){
-		displayables.add(q);
+	public void add(Displayable d){
+		displayables.add(d);
 	}
 
-	public void delete(Question q){
-		displayables.remove(q);
+	public void delete(Displayable d){
+		displayables.remove(d);
 	}
 
 	public void writeHTML (StringBuilder b) {
