@@ -3,6 +3,11 @@ package org.adastraeducation.liquiz;
 public class Answer implements Displayable {
 	private String ans;
 	private boolean correct;
+	private String width; // for graphical answer
+	private String height;// for graphical answer
+	private int value; //poll values
+	
+	
 	public Answer(String ans, boolean correct) {
 		this.ans = ans;
 		this.correct = correct;
@@ -11,7 +16,14 @@ public class Answer implements Displayable {
 		this(ans, false);
 	}
 	public Answer() { this(null, false); }
-    public void setAnswer(String answer){
+	
+	
+        public Answer(String ans, int value) {
+    		this.ans = ans;
+    		this.value = value;
+	}
+    
+	public void setAnswer(String answer){
 		ans = answer;
 	}
 	public String getAnswer(){
@@ -22,10 +34,20 @@ public class Answer implements Displayable {
 	}
 	public  boolean getCorrect(){
 		return correct;
-
+	}
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
+	}
+	
+	//TODO: Dov says add graphical answer back in here once it works
+	// working on this
+	public String graphanswer(){
+		return "<input type=\"radio\" value = " + ans + "\" alt=\"" + ans + "\" width=\""+ width+"\" height=\""+height+"\"><br>";
 	}
 
-	//TODO: Dov says add graphical answer back in here once it works
 	public void writeHTML(StringBuilder b) {
 		b.append("<input type='radio' name='")
 				.append(ans).append("'>").append("<br>");

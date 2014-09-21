@@ -1,5 +1,6 @@
 package org.adastraeducation.liquiz;
 
+
 public class MultiChoiceRadio extends MultiChoiceDropdown {
 	public MultiChoiceRadio() {
 	}
@@ -17,13 +18,13 @@ public class MultiChoiceRadio extends MultiChoiceDropdown {
 		return "MultiChoiceRadio";
 	}
 
-	public void writeHTML(StringBuilder b ){		
+	public void writeHTML(StringBuilder b ){
+		b.append("<select>");
 		for (int i = 0; i < answers.length; i++){
-			b.append("<select>");
-			b.append("<option> <input type='radio' value= '" + answers[i].getAnswer() + "'>  </option> ");
-			b.append("</select>");
-			b.append("</br>");
-        }
+			b.append("<option> <input type='radio' value= '" + answers[i].getAnswer() + "'> "+ answers[i].getAnswer() +" </option> ");
+		}
+		b.append("</select>");
+		b.append("</br>");
 	}
 
 	public void writeJS(StringBuilder b ) {
