@@ -18,9 +18,9 @@ public class Answer implements Displayable {
 	public Answer() { this(null, false); }
 	
 	
-    public Answer(String ans, int value) {
-    	this.ans = ans;
-    	this.value = value;
+        public Answer(String ans, int value) {
+    		this.ans = ans;
+    		this.value = value;
 	}
     
 	public void setAnswer(String answer){
