@@ -5,16 +5,17 @@ import org.adastraeducation.liquiz.Quiz;
 public class Var implements Expression{
 	private double operand;
 	private String name;
-	private int min;
-	private int step;
-	private int max;
+	private double min;
+	private double step;
+	private double max;
 	
-	public Var(String name, int min, int step, int max){
+	public Var(String name, double min, double max, double step){
 		this.name = name;
 		this.min=min;
 		this.step=step;
 		this.max=max;
-		Quiz.random(min,  max, step);
+		operand=Quiz.random(min,  max, step);
+
 	}
 	
 	public Var(String name, double x){

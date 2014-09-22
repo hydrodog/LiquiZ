@@ -1,6 +1,8 @@
 package org.adastraeducation.liquiz.test;
 import org.adastraeducation.liquiz.equation.*;
+
 import java.io.*;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.beans.XMLEncoder;
 import java.beans.XMLDecoder;
@@ -32,6 +34,7 @@ public class Test {
 		Quiz quiz = new Quiz();
 		quiz.setId(1);
 		quiz.setName("Animals");
+		// for multiChoiceDropDown
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
 				new Text("What is a dinosaur?"),
@@ -45,15 +48,14 @@ public class Test {
 			}
 		);
 		quiz.addQuestionContainer(qc);
-
-		Equation eq = new Equation
-		(
-			new Plus
-			(
-				new Var("x", 0, 1, 99),	
-				new Var("y", 0, 1, 99)	
-			)
-		);
+		
+		//for Equation
+		Var x = new Var("x", 0, 99, 1);
+		Var y = new Var("y", 0, 99, 1);
+		HashMap<String,Var> map = new HashMap<String,Var>();
+		map.put("x",x);
+		map.put("y", y);
+		Equation eq = new Equation(	"x+y",map);
 		
 		qc = new QuestionContainer(
 			new Displayable[] {
