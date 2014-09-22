@@ -1,10 +1,10 @@
 package org.adastraeducation.liquiz;
 
-import java.util.ArrayList;
 
 public class MultiChoiceDropdown extends Question {
 	protected Answer[] answers;
 	private StdChoice stdchoice;
+	
 
 	public MultiChoiceDropdown() {
 	}
@@ -19,17 +19,11 @@ public class MultiChoiceDropdown extends Question {
 		this.answers = answers.clone();
 	}
 
-	/*
-	 * TODO: Here you have to look up a standard choice, put it in here and not
-	 * use the answers.
-	 */
-     // I have changed it the code complies now
-	public MultiChoiceDropdown(int level, int points, String stdChoiceName, String[] options) {
+	public MultiChoiceDropdown(int level, int points, String stdChoiceName) {
 		super(level, points);
-		stdchoice = new StdChoice(stdChoiceName, options);
-			
+		stdchoice = new StdChoice(stdChoiceName);
 	}
-
+	
 	public String getTagName() {
 		return "MultiChoice";
 	}
