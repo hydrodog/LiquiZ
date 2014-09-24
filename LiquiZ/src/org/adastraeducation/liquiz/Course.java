@@ -58,7 +58,7 @@ public class Course implements Displayable {
 	}
 
 	public void writeJS(StringBuilder b) {
-		b.append("quizList([");
+		b.append("[");
 		for (Quiz q : quizzes) {
 			q.writeJS(b);
 		}
