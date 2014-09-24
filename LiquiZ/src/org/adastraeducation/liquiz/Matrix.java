@@ -6,15 +6,19 @@ public class Matrix implements Displayable {
 	private int row;
 	private int col;
 	
-	//no number construction
+	/**
+	 * Construct a matrix with all zeros
+	 */
 	public Matrix(int row, int col){
 		this.row=row;
 		this.col=col;
 		data = new double[row][col];
 	}
 	
-	// Create a random matrix of rowxcol with all elements
-	// between min and max inclusive
+	/**
+	 *  Create a random matrix of row x col with random elements
+	 *  between min and max inclusive
+	 */
 	public Matrix(int row, int col, int min, int max){
 		this.row=row;
 		this.col=col;
@@ -54,7 +58,12 @@ public class Matrix implements Displayable {
 		return result;
 	}
 	
-	//Matrix multiply
+	/**
+	 * Matrix multiply: left must have the same number
+	 * of columns as the right as rows
+	 * @param right
+	 * @return the product of the two
+	 */
 	public Matrix multiply(Matrix right){
 		Matrix result = new Matrix(row, right.col);
 		if(col != right.row){
@@ -62,18 +71,16 @@ public class Matrix implements Displayable {
 			System.out.println("Invalid Matrix!");
 			return result;
 		}
-		else {
-			for (int i = 0; i < row;i++){
-				for(int j = 0; j < right.col; j++){
-					int sum = 0;
-					for(int k = 0; k < col; k++){
-						sum += data[i][k] * right.data[k][j];
-					}
-					result.data[i][j]=sum;
+		for (int i = 0; i < row;i++) {
+			for(int j = 0; j < right.col; j++){
+				int sum = 0;
+				for(int k = 0; k < col; k++){
+					sum += data[i][k] * right.data[k][j];
 				}
+				result.data[i][j]=sum;
 			}
-			return result;
 		}
+		return result;
 	}
 	
 	public String toString() {
