@@ -14,7 +14,7 @@ public class Text implements Displayable {
 	}
 	@Override
 	public void writeJS(StringBuilder b) {
-		b.append(text);
+		b.append('\'').append(text).append('\'');
 	}
 	@Override
 	public void writeXML(StringBuilder b) {
