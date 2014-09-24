@@ -164,8 +164,6 @@ public class Equation implements Displayable {
 	@Override
 	public void writeHTML(StringBuilder b) {	
 		func.infixReplaceVar(b);
-		b.append("<p><br>");
-		b.append("<input type='text' ").append("'><br>");
 	}
 
 	@Override
