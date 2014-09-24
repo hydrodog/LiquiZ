@@ -1,5 +1,7 @@
 /* Quizzes are organized into courses */
 
+package org.adastraeducation.liquiz;
+
 import java.util.ArrayList;
 
 public class Course implements Displayable {
