@@ -11,7 +11,7 @@ public class Audio implements Displayable {
 	//<source src="horse.mp3" type="audio/mpeg">
 	public void writeHTML(StringBuilder b){
 		b.append("<audio controls>");
-		b.append("<source src='" + source + "' type ='"+ type + "'>");
+		b.append("<source src=\"" + audio + "\"type =\""+ type + "\">");
 		b.append("</audio>");
 	}
 	// to do : how to represent image in JavaScript
