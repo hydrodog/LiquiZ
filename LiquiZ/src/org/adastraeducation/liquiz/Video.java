@@ -18,10 +18,10 @@ public class Video implements Displayable {
 	//<source src="movie.mp4" type="video/mp4">
 	//<source src="movie.ogg" type="video/ogg">
 	public void writeHTML(StringBuilder b){
-		b.append("<video width='").append(width).append("' height='").
-			append(height).append("' controls>");
-		b.append("<img src='" + video +  "' type ='"+ type + "'>");
-		b.append("</video>\n");
+		b.append("<video controls width=\""+ width +"\" height=\""+ height +"\">");
+		b.append("<source src=\"" + video +  "\" type =\""+ type + "\"/>");
+		b.append("</video>");
+		
 	}
 	// to do : how to represent image in JavaScript
 	public void writeJS(StringBuilder b){

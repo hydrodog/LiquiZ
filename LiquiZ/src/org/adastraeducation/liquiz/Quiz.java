@@ -96,7 +96,10 @@ public class Quiz implements Displayable {
 	}
 	
 	public void writeHTML (StringBuilder b)	{
-		b.append("<div class='quiz'>\n");
+		//TODO: everyone add className to each object
+		// if it is null, don't add a classname
+		// if it is a string, append (as below)
+		b.append("<div class='quiz classname'>\n");
 		for(QuestionContainer qc : this.qContainers) {
 			qc.writeHTML(b);
 		}

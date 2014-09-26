@@ -41,13 +41,13 @@ public class QuestionContainer implements Displayable {
 	}
 
 	public void writeJS (StringBuilder b) {
-		b.append("{title:... [");
+		b.append("{title: 'foo', className: 'claz' , content:[");
 		if (displayables.size() > 0) {
 			displayables.get(0).writeJS(b);
 			if (displayables.size() > 1) {
 				for (int i = 1; i < displayables.size(); i++) {
 					b.append(',');
-					displayables.get(i);
+					displayables.get(i).writeJS(b);;
 				}
 			}
 		}

@@ -103,9 +103,7 @@ public class Test {
 
 		return quiz;
 	}
-	/*
-	 * Create a multimedia quiz (video, audio, and questions)
-	 */
+	
 	public static Quiz test2() {
 		Quiz quiz = new Quiz();
 		Response qc = new Response(
@@ -114,6 +112,45 @@ public class Test {
 				new MultiChoiceDropdown()
 			}
 		);
+		return quiz;
+	}
+	/*
+	 * Create a multimedia quiz (video, audio, and questions)
+	 */
+	public static Quiz test3() {
+		Quiz quiz = new Quiz();
+		QuestionContainer qc = new QuestionContainer(
+			new Displayable[] {
+				new Video("video1.mp4","480","360","video/mp4"),
+				new Text("What is this video about ?"),
+				new MultiChoiceDropdown(4, 5,
+				new Answer[] {new Answer("Train"),
+				    new Answer("Cable Car"), new Answer("Bus")
+				  }),
+				new Audio("audio1.mp3", "audio/mpeg"),
+				new Text("What animal sounds like this ?"),
+				new MultiChoiceDropdown(4, 5,
+						new Answer[] {new Answer("Cat"),
+						    new Answer("Dog"), new Answer("Horse")
+				})
+			}
+		);
+		quiz.addQuestionContainer(qc);
+		return quiz;
+	}
+	// Standard Choice with multipledropdown and multiple radio button
+	public static Quiz test4() {
+		Quiz quiz = new Quiz();
+		QuestionContainer qc = new QuestionContainer(
+			new Displayable[] {
+				new Text("Is eating Sugar good ?"),
+				new MultiChoiceDropdown(1, 5, "Poll"),
+				new Text("Is eating Sugar good ?"),
+				new MultiChoiceRadio(1, 5, "Poll")
+	
+			}
+		);
+		quiz.addQuestionContainer(qc);
 		return quiz;
 	}
 	public static void writeHTML(String filename, StringBuilder buf) throws IOException {
