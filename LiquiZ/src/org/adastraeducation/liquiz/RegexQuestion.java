@@ -27,9 +27,5 @@ public class RegexQuestion extends FillIn {
 		return pattern;
 	}
 	
-	public boolean isCorrect(String[] asnwer){
-		
-		return false;
-	}
 
 }

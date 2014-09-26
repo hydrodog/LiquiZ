@@ -1,5 +1,6 @@
 package org.adastraeducation.liquiz.test;
 import org.adastraeducation.liquiz.equation.*;
+import org.adastraeducation.liquiz.util.SpecializedPattern;
 
 import java.io.*;
 import java.util.HashMap;
