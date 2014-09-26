@@ -3,10 +3,9 @@ package org.adastraeducation.liquiz;
 public class Answer implements Displayable {
 	private String ans;
 	private boolean correct;
+	private int index;// for standard choice
 	private String width; // for graphical answer
-	private String height;// for graphical answer
-	private int value; //poll values
-	
+	private String height;// for graphical answer	
 	
 	public Answer(String ans, boolean correct) {
 		this.ans = ans;
@@ -17,12 +16,41 @@ public class Answer implements Displayable {
 	}
 	public Answer() { this(null, false); }
 	
-	
-        public Answer(String ans, int value) {
-    		this.ans = ans;
-    		this.value = value;
+    public Answer(int index, String ans) {
+		this.ans = ans;
+		this.index = index;
+		this.correct = false;
+	}
+    public Answer(int index, String ans, boolean correct) {
+		this.ans = ans;
+		this.index = index;
+		this.correct = correct;
 	}
     
+	public String getAns() {
+		return ans;
+	}
+	public void setAns(String ans) {
+		this.ans = ans;
+	}
+	public int getIndex() {
+		return index;
+	}
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	public String getWidth() {
+		return width;
+	}
+	public void setWidth(String width) {
+		this.width = width;
+	}
+	public String getHeight() {
+		return height;
+	}
+	public void setHeight(String height) {
+		this.height = height;
+	}
 	public void setAnswer(String answer){
 		ans = answer;
 	}
@@ -35,15 +63,8 @@ public class Answer implements Displayable {
 	public  boolean getCorrect(){
 		return correct;
 	}
-	public int getValue() {
-		return value;
-	}
-	public void setValue(int value) {
-		this.value = value;
-	}
 	
 	//TODO: Dov says add graphical answer back in here once it works
-	// working on this
 	public String graphanswer(){
 		return "<input type=\"radio\" value = " + ans + "\" alt=\"" + ans + "\" width=\""+ width+"\" height=\""+height+"\"><br>";
 	}
