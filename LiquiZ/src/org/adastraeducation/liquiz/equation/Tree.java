@@ -42,7 +42,7 @@ public class Tree {
 		} else if (use.equals(")")) {
 			hierarchy -= 3;
 		} else {
-			level = 99;
+			level = Integer.MAX_VALUE;
 		}
 		// start to insert
 		//if the char is "(" or ")", then there is no use for new node
