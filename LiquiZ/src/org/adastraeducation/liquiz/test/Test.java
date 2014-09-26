@@ -138,15 +138,19 @@ public class Test {
 		quiz.addQuestionContainer(qc);
 		return quiz;
 	}
-	// Standard Choice with multipledropdown and multiple radio button
+	// Standard Choice with multipledropdown, multiple radio and multianswers 
 	public static Quiz test4() {
 		Quiz quiz = new Quiz();
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
-				new Text("Is eating Sugar good ?"),
+				new Text("Can all birds fly ?"),
 				new MultiChoiceDropdown(1, 5, "Poll"),
-				new Text("Is eating Sugar good ?"),
-				new MultiChoiceRadio(1, 5, "Poll")
+				new Text("What is the complexity of BubbleSort ?"),
+				new MultiChoiceDropdown(1, 5, "Complexity", 2),
+				new Text("What are the colors of an apple ?"),
+				new MultiAnswer(1, 5, "Colors", new int []{2,3}),
+				new Text("Name the insects:"),
+				new MultiAnswer(1, 5, "Insects", new int []{3,4,5})
 	
 			}
 		);
