@@ -5,7 +5,7 @@ package org.adastraeducation.liquiz;
 import java.util.ArrayList;
 
 public class Course implements Displayable {
-	private String id, name;
+	private String id, name, className; // classname is for user to override HTML class for style
 	private ArrayList<Quiz> quizzes;
 
 	public Course() {}
@@ -41,7 +41,7 @@ public class Course implements Displayable {
 	}
 
 	public void writeHTML(StringBuilder b) {
-		b.append("<div class='quizList'>\n");
+		b.append("<div class='quizList " + className + "'>\n");
 		for (Quiz q : quizzes) {
 			b.append("<div class='quizName'>" + q.getName() + "</div>\n");
 			b.append("<div class='quizPol'>" + q.getPolicies() + "</div>\n");
@@ -50,18 +50,18 @@ public class Course implements Displayable {
 	}
 
 	public void writeXML(StringBuilder b) {
-		b.append("<quizList id='' courseName='" + name + "'>");
+		b.append("<quizList id='" + id + "' courseName='" + name + "'>");
 		for (Quiz q : quizzes) {
-			b.append("<quizName policy='" + q.getPolicies() + "'>" + q.getName() + "</quizName>\n");
+			q.writeXML(StringBuilder b);
 		}
 		b.append("</quizList>");
 	}
+	//TODO: writing out only some quizzes?
 
 	public void writeJS(StringBuilder b) {
-		b.append("[");
 		for (Quiz q : quizzes) {
-			q.writeJS(b);
+			b.append('quizref(' + q.getName() + ',' + q.getPolicies() + ');');
 		}
-		b.append("]");
 	}
+	//for jquery
 }
