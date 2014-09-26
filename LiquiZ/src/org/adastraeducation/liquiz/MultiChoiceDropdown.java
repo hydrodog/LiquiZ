@@ -1,13 +1,18 @@
 package org.adastraeducation.liquiz;
 
 
+
 public class MultiChoiceDropdown extends Question {
 	protected Answer[] answers;
-	private StdChoice stdchoice;
+	protected StdChoice stdchoice;
 	
 
 	public MultiChoiceDropdown() {
 	}
+	public MultiChoiceDropdown(int level, int points) {
+		super(level, points);
+	}
+
 
 	public MultiChoiceDropdown(int id, int level, int points, Answer[] answers) {
 		super(id, level, points);
@@ -23,7 +28,12 @@ public class MultiChoiceDropdown extends Question {
 		super(level, points);
 		stdchoice = new StdChoice(stdChoiceName);
 	}
-	
+	// added a new method to accomodate the right answer choice
+	public MultiChoiceDropdown(int level, int points, String stdChoiceName, int rightAns) {
+		super(level, points);
+		stdchoice = new StdChoice(stdChoiceName, rightAns);
+	}
+
 	public String getTagName() {
 		return "MultiChoice";
 	}
@@ -32,7 +42,7 @@ public class MultiChoiceDropdown extends Question {
 		// Standard Choice options
 		if (stdchoice != null) {
 
-			stdchoice.writeHTML(b);
+			stdchoice.writeHTMLDropdown(b);
 
 		} else {
 
@@ -43,6 +53,7 @@ public class MultiChoiceDropdown extends Question {
 						+ answers[i].getAnswer() + " </option> ");
 			}
 			b.append("</select>");
+			b.append("</br>");
 			b.append("</br>");
 		}
 
