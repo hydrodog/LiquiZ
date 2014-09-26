@@ -1,5 +1,6 @@
 package org.adastraeducation.liquiz;
 
+
 public class MultiAnswer extends MultiChoiceDropdown {
 	private Answer [] answers;
 
@@ -15,20 +16,33 @@ public class MultiAnswer extends MultiChoiceDropdown {
 		super(level, points, answers);
 	}
 	
+	public MultiAnswer(int level, int points, String stdChoiceName, int [] rightAns) {
+		// TODO Auto-generated constructor stub
+		super(level, points);
+		stdchoice = new StdChoice(stdChoiceName, rightAns);
+	}
+
 	public String getTagName() {
 		return "MultiAnswer";
 	}
 
 	//TODO: the html is wrong here, you need values between <option> and </option>
-	public void writeHTML(StringBuilder b ){		
-		b.append("<select multiple>\n");
-		for (int i = 0; i < answers.length; i++){
-			b.append("<option value= '").append(answers[i].getAnswer()).
-				append("'>").append(answers[i].getAnswer())
-				.append("</option>");
-			b.append("<br/>\n");
-        }
-		b.append("</select>\n");
+	public void writeHTML(StringBuilder b ){	
+		if (stdchoice != null) {
+
+			stdchoice.writeHTMLMultiSelection(b);
+
+		} else {
+
+		
+			b.append("<select multiple>");
+			for (int i = 0; i < answers.length; i++){
+				b.append("<option value= '" + answers[i].getAnswer() + "'>"+ answers[i].getAnswer() +"  </option> ");
+			 }
+			b.append("</select>");
+			b.append("</br>");
+		}
+       
 	}
 	public void writeJS(StringBuilder b ){
 		for (int i = 0; i < answers.length; i++){
