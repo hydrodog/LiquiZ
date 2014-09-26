@@ -147,6 +147,8 @@ public class Test {
 				new MultiChoiceDropdown(1, 5, "Poll"),
 				new Text("What is the complexity of BubbleSort ?"),
 				new MultiChoiceDropdown(1, 5, "Complexity", 2),
+				new Text("What is the complexity of QuickSort?"),
+				new MultiChoiceRadio(1, 5, "Complexity", 4),
 				new Text("What are the colors of an apple ?"),
 				new MultiAnswer(1, 5, "Colors", new int []{2,3}),
 				new Text("Name the insects:"),
