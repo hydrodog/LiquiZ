@@ -52,7 +52,7 @@ public class Course implements Displayable {
 	public void writeXML(StringBuilder b) {
 		b.append("<quizList id='" + id + "' courseName='" + name + "'>");
 		for (Quiz q : quizzes) {
-			q.writeXML(StringBuilder b);
+			q.writeXML(b);
 		}
 		b.append("</quizList>");
 	}
@@ -60,7 +60,8 @@ public class Course implements Displayable {
 
 	public void writeJS(StringBuilder b) {
 		for (Quiz q : quizzes) {
-			b.append('quizref(' + q.getName() + ',' + q.getPolicies() + ');');
+			b.append("quizref(").append(q.getName())
+			.append(',').append(q.getPolicies()).append("')");
 		}
 	}
 	//for jquery
