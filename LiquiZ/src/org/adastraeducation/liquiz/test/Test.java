@@ -1,5 +1,6 @@
 package org.adastraeducation.liquiz.test;
 import org.adastraeducation.liquiz.equation.*;
+import org.adastraeducation.liquiz.util.NumberWarningPattern;
 import org.adastraeducation.liquiz.util.SpecializedPattern;
 
 import java.io.*;
@@ -50,7 +51,7 @@ public class Test {
 		);
 		quiz.addQuestionContainer(qc);
 		
-		//for Equation
+		//for Equation and Fillin, no WarningPattern
 		Var x = new Var("x", 0, 99, 1);
 		Var y = new Var("y", 0, 99, 1);
 		HashMap<String,Var> map = new HashMap<String,Var>();
@@ -64,6 +65,24 @@ public class Test {
 				eq,
 				new Text("?"),
 				new FillIn(3, 1, 1)
+			}
+			);
+		quiz.addQuestionContainer(qc);
+		
+		//for Equation and Fillin, with WarningPattern
+		Var x1 = new Var("x1", 0, 99, 1);
+		Var y1 = new Var("y1", 0, 99, 1);
+		HashMap<String,Var> map1 = new HashMap<String,Var>();
+		map.put("x1",x1);
+		map.put("y1", y1);
+		Equation eq1 = new Equation(	"x1+y1",map);
+		
+		qc = new QuestionContainer(
+			new Displayable[] {
+				new Text("What is "),
+				eq1,
+				new Text("?"),
+				new FillIn(3, 1, 1, new NumberWarningPattern(3))
 			}
 			);
 		quiz.addQuestionContainer(qc);
@@ -159,6 +178,7 @@ public class Test {
 		quiz.addQuestionContainer(qc);
 		return quiz;
 	}
+
 	public static void writeHTML(String filename, StringBuilder buf) throws IOException {
 		FileWriter fw = new FileWriter(filename);
 		fw.write(header);

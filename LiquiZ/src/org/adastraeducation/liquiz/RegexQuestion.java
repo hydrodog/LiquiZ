@@ -5,17 +5,17 @@ import java.util.ArrayList;
 
 public class RegexQuestion extends FillIn {	
 	private QuizPattern pattern;
-	public RegexQuestion(int id, int points, int level,
-			QuizPattern pattern) {
+	public RegexQuestion(int id, int points, int level, QuizPattern pattern) {
 		super(id,points,level);
 		this.pattern = pattern;
 	}
 	
-//	public RegexQuestion(int id, int points, int level,QuizPattern pattern, ArrayList<Answer> answers) {
-//		super(id,points,level);
-//		this.pattern = pattern;
-//		this.answers=answers;
-//	}
+	public RegexQuestion(int id, int points, int level, boolean warningPattern, QuizPattern pattern) {
+		super(id,points,level, warningPattern);
+		this.pattern = pattern;
+	}
+	
+
 	
 	public String getTagName() { return "RegexQuestion"; }
 	
