@@ -19,6 +19,11 @@ public class FillIn extends Question {
 		super(id, points, level);
 	}
 	
+	public FillIn(int id, int points, int level, String answer) {
+		super(id, points, level);
+		this.answer = new Answer(answer);
+	}
+	
 	public FillIn(int id, int points, int level, Answer answer) {
 		super(id, points, level);
 		this.answer=answer;
