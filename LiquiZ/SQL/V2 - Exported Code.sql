@@ -97,7 +97,7 @@ DROP TABLE IF EXISTS `mydb`.`CoursesQuizzes` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`CoursesQuizzes` (
   `Course` INT NULL,
   `Quiz` INT NULL,
-  `Order` INT NULL)
+  `Sequence` INT NULL)
 ENGINE = InnoDB;
 
 
@@ -121,7 +121,7 @@ DROP TABLE IF EXISTS `mydb`.`QuizzesQuesCons` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`QuizzesQuesCons` (
   `Quiz` INT NOT NULL,
   `QuesCon` INT NOT NULL,
-  `Order` INT NOT NULL)
+  `Sequence` INT NOT NULL)
 ENGINE = InnoDB;
 
 
@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `mydb`.`QuesConElements` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`QuesConElements` (
   `QuesCon` INT NOT NULL,
-  `Order` INT NOT NULL,
+  `Sequence` INT NOT NULL,
   `Element` INT NULL,
   `Ques` INT NULL,
   `Type` CHAR(4) NOT NULL)
@@ -146,7 +146,7 @@ DROP TABLE IF EXISTS `mydb`.`Answers` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`Answers` (
   `AnsID` INT NOT NULL,
-  `Order` INT NOT NULL,
+  `Sequence` INT NOT NULL,
   `Correct` VARCHAR(1) NOT NULL DEFAULT 'Y',
   `Response` INT NULL,
   `Element` INT NULL COMMENT 'What represents the answer',
@@ -164,7 +164,7 @@ DROP TABLE IF EXISTS `mydb`.`DispElSeq` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`DispElSeq` (
   `DispEl` INT NOT NULL,
   `Element` VARCHAR(255) NOT NULL,
-  `Order` INT NOT NULL,
+  `Sequence` INT NOT NULL,
   `Type` CHAR(4) NOT NULL)
 ENGINE = InnoDB;
 
@@ -177,7 +177,7 @@ DROP TABLE IF EXISTS `mydb`.`StdChoices` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`StdChoices` (
   `StdChoice` INT NOT NULL,
   `Element` INT NOT NULL,
-  `Order` INT NOT NULL,
+  `Sequence` INT NOT NULL,
   PRIMARY KEY (`StdChoice`))
 ENGINE = InnoDB;
 
@@ -240,6 +240,51 @@ CREATE  OR REPLACE VIEW `ViewAnsToQues` AS
 SELECT Ques, GROUP_CONCAT(Ans), GROUP_CONCAT(StdChoice), Sequence
 FROM QuesAnsSeq
 WHERE Correct="Y"
+;
+
+-- -----------------------------------------------------
+-- Placeholder table for view `mydb`.`ViewQuiz`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS 'mydb'.'ViewQuiz' ('QuesCon' INT, 'QuesID' INT, 'Element' VARCHAR(255));
+
+-- -----------------------------------------------------
+-- View 'ViewQuiz'
+-- -----------------------------------------------------
+DROP VIEW IF EXISTS 'mydb'.'ViewQuiz' ;
+DROP TABLE IF EXISTS 'mydb','ViewQuiz';
+USE 'mydb';
+CREATE OR REPLACE VIEW `ViewQuiz` AS
+SELECT QuizzesQuesCons.QuesCon, Questions.QuesID, DispElSeq.Element
+FROM QuizzesQuesCons
+LEFT JOIN QuesConElements ON QuizzesQuesCons.QuesCon = QuesConElements.QuesCon
+LEFT JOIN Questions ON QuesConElements.Ques = Questions.QuesID
+LEFT JOIN DispElSeq ON QuesConElements.Element = DispElSeq.DispEl
+AND QuizzesQuesCons.Quiz="1"
+ORDER BY QuizzesQuesCons.Sequence, QuesConElements.Sequence, DispElSeq.Sequence ASC
+;
+
+-- -----------------------------------------------------
+-- Placeholder table for view `mydb`.`ViewQuizWAns`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS 'mydb'.'ViewQuizWAns' ('QuesCon' INT, 'Element' VARCHAR(255), 'QuesID' INT, 'Points' INT, 'AnsID' INT);
+
+-- -----------------------------------------------------
+-- View 'ViewQuizWAns'
+-- -----------------------------------------------------
+DROP VIEW IF EXISTS 'mydb'.'ViewQuizWAns' ;
+DROP TABLE IF EXISTS 'mydb','ViewQuizWAns';
+USE 'mydb';
+CREATE OR REPLACE VIEW `ViewQuizWAns` AS
+SELECT QuizzesQuesCons.QuesCon, DispElSeq.Element, Questions.QuesID, Questions.Points, Answers.AnsID
+FROM QuizzesQuesCons
+LEFT JOIN QuesConElements ON QuizzesQuesCons.QuesCon = QuesConElements.QuesCon
+LEFT JOIN Questions ON QuesConElements.Ques = Questions.QuesID
+LEFT JOIN QuesAnsSeq ON Questions.QuesID = QuesAnsSeq.Ques
+LEFT JOIN Answers ON QuesAnsSeq.Ans = Answers.AnsID AND QuesAnsSeq.Correct="Y"
+LEFT JOIN StdChoices ON QuesAnsSeq.StdChoice = StdChoice.StdChID AND QuesAnsSeq.Correct="Y"
+LEFT JOIN DispElSeq ON QuesConElements.DispEl = DispElSeq.DispEl AND Answers.Element = DispElSeq.DispEl AND Answers.Response = DispElSeq.DispEl
+WHERE QuizzesQuesCons.Quiz="1" -- just an example quiz
+ORDER BY QuizzesQuesCons.Sequence, QuesConElements.Sequence, DispElSeq.Sequence ASC
 ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
