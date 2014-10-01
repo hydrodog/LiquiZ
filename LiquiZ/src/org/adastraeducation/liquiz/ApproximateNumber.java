@@ -1,5 +1,10 @@
 package org.adastraeducation.liquiz;
 
+/*
+ * author:Yingzhu
+ * This is for Number question
+ */
+
 public class ApproximateNumber extends FillIn {
 	private double number;
 	private double appro;

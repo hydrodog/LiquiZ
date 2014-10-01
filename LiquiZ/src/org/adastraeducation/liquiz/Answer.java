@@ -1,5 +1,10 @@
 package org.adastraeducation.liquiz;
 
+/*
+ * author: together
+ * It is for answers for every question
+ */
+
 public class Answer implements Displayable {
 	private String ans;
 	private boolean correct;
