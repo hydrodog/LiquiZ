@@ -1,4 +1,6 @@
-/* Quizzes are organized into courses */
+/**
+ * Quizzes are organized into courses
+ */
 
 package org.adastraeducation.liquiz;
 
