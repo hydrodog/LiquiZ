@@ -180,20 +180,20 @@ public class Test {
 		return quiz;
 	}
 
-	public static void writeHTML(String filename, Quiz quiz)
+	public static void writeHTML(String filename, Displayable d)
 			throws IOException {
 		FileWriter fw = new FileWriter(filename);
 		fw.write(header);
 		StringBuilder b = new StringBuilder(65536);
-		quiz.writeHTML(b);
+		d.writeHTML(b);
 		fw.write(b.toString());
 		fw.write(trailer);
 		fw.close();
 	}
-	public static void writeJS(String filename, Quiz quiz) throws IOException {
+	public static void writeJS(String filename, Displayable d) throws IOException {
 		FileWriter fw = new FileWriter(filename);
 		StringBuilder b = new StringBuilder(65536);
-		quiz.writeJS(b);
+		d.writeJS(b);
 		fw.write(b.toString());
 		fw.close();		
 	}
@@ -210,17 +210,17 @@ public class Test {
 		dec.close();
 		return q;
 	}
-	public static void testOutput(String baseName, Quiz quiz) throws IOException {
-		writeHTML(baseName + ".html", quiz); 
-		writeXML(baseName + ".xml", quiz); 
-		writeJS(baseName + ".js", quiz);
+	public static void testOutput(String baseName, Displayable d) throws IOException {
+		writeHTML(baseName + ".html", d); 
+		writeJS(baseName + ".js", d);
+		if (d instanceof Quiz)
+			writeXML(baseName + ".xml", (Quiz)d); 
 	}
 	
 	public static void main(String[] args) throws IOException {
 		testOutput("output/test1", test1());
 //		testOutput("output/test2", test2());
 		testOutput("output/test3", test3());
-
 	}
 
 }
