@@ -82,7 +82,7 @@ public class Test {
 				new Text("What is "),
 				eq1,
 				new Text("?"),
-				new FillIn(4, 1, 1, new NumberWarningPattern(3))
+				new FillIn(40, 1, 1, new NumberWarningPattern(3))
 			}
 			);
 		quiz.addQuestionContainer(qc);
