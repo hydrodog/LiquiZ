@@ -136,11 +136,12 @@ public class Test {
 	/*
 	 * Create a multimedia quiz (video, audio, and questions)
 	 */
+	
 	public static Quiz test3() {
 		Quiz quiz = new Quiz();
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
-				new Video("video1.mp4","480","360","video/mp4"),
+				new Video("video1.mp4",480, 360,"video/mp4"),
 				new Text("What is this video about ?"),
 				new MultiChoiceDropdown(4, 5,
 				new Answer[] {new Answer("Train"),
@@ -167,7 +168,7 @@ public class Test {
 				new Text("What is the complexity of BubbleSort ?"),
 				new MultiChoiceDropdown(1, 5, "Complexity", 2),
 				new Text("What is the complexity of QuickSort?"),
-				new MultiChoiceRadio(1, 5, "Complexity", 4),
+				new MultiChoiceRadio(1, 5, "Complexity"),
 				new Text("What are the colors of an apple ?"),
 				new MultiAnswer(1, 5, "Colors", new int []{2,3}),
 				new Text("Name the insects:"),
@@ -179,15 +180,24 @@ public class Test {
 		return quiz;
 	}
 
-	public static void writeHTML(String filename, StringBuilder buf) throws IOException {
+	public static void writeHTML(String filename, Quiz quiz)
+			throws IOException {
 		FileWriter fw = new FileWriter(filename);
 		fw.write(header);
-		String s = buf.toString();
-		fw.write(s);
-		buf.setLength(0);
+		StringBuilder b = new StringBuilder(65536);
+		quiz.writeHTML(b);
+		fw.write(b.toString());
 		fw.write(trailer);
 		fw.close();
 	}
+	public static void writeJS(String filename, Quiz quiz) throws IOException {
+		FileWriter fw = new FileWriter(filename);
+		StringBuilder b = new StringBuilder(65536);
+		quiz.writeJS(b);
+		fw.write(b.toString());
+		fw.close();		
+	}
+
 	public static void writeXML(String filename, Quiz quiz) throws IOException {
 		XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(filename)));
 		enc.writeObject(quiz);
@@ -200,13 +210,17 @@ public class Test {
 		dec.close();
 		return q;
 	}
-
+	public static void testOutput(String baseName, Quiz quiz) throws IOException {
+		writeHTML(baseName + ".html", quiz); 
+		writeXML(baseName + ".xml", quiz); 
+		writeJS(baseName + ".js", quiz);
+	}
+	
 	public static void main(String[] args) throws IOException {
-		StringBuilder b = new StringBuilder(65536);
-		Quiz quiz = test1();
-		quiz.writeHTML(b);
-		writeHTML("output/test1.html", b);
-		writeXML("output/test1.xml", quiz);
+		testOutput("output/test1", test1());
+//		testOutput("output/test2", test2());
+		testOutput("output/test3", test3());
+
 	}
 
 }
