@@ -44,7 +44,7 @@ public class Course implements Displayable {
 		b.append("<div class='quizList " + className + "'>\n");
 		for (Quiz q : quizzes) {
 			b.append("<div class='quizName'>" + q.getName() + "</div>\n");
-			b.append("<div class='quizPol'>" + q.getPolicies() + "</div>\n");
+			b.append("<div class='quizPol'>" + q.getPolicy() + "</div>\n");
 		}
 		b.append("</div>");
 	}
@@ -61,7 +61,7 @@ public class Course implements Displayable {
 	public void writeJS(StringBuilder b) {
 		for (Quiz q : quizzes) {
 			b.append("quizref(").append(q.getName())
-			.append(',').append(q.getPolicies()).append("')");
+			.append(',').append(q.getPolicy()).append("')");
 		}
 	}
 	//for jquery
