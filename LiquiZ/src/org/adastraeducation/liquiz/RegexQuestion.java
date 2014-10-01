@@ -10,7 +10,7 @@ public class RegexQuestion extends FillIn {
 		this.pattern = pattern;
 	}
 	
-	public RegexQuestion(int id, int points, int level, boolean warningPattern, QuizPattern pattern) {
+	public RegexQuestion(int id, int points, int level, NumberWarningPattern warningPattern, QuizPattern pattern) {
 		super(id,points,level, warningPattern);
 		this.pattern = pattern;
 	}
