@@ -31,6 +31,12 @@ public class Essay extends Question {
 		b.append("<essay>").append(Quiz.escapeXML(defaultText))
 			.append("</essay>");
 	}
+
+	@Override
+	public boolean isCorrect(String s) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }

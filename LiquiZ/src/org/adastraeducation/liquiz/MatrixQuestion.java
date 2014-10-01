@@ -56,5 +56,10 @@ public class MatrixQuestion extends Question {
 		a.writeXML(buf);
 		System.out.println(buf);
 	}
+	@Override
+	public boolean isCorrect(String s) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

@@ -61,4 +61,6 @@ public abstract class Question implements Displayable {
 			b.append(tag).append("=\"").append(val).append("\" ");
 		}
 	}
+	
+	public abstract boolean isCorrect(String s);
 }

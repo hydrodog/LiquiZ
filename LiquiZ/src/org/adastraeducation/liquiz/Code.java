@@ -36,4 +36,10 @@ public class Code extends Question {
 		b.append("<code>").append(Quiz.escapeXML(defaultText))
 			.append("</code>");
 	}
+
+	@Override
+	public boolean isCorrect(String s) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
