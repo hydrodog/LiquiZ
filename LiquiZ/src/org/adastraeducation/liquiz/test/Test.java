@@ -221,6 +221,11 @@ public class Test {
 		testOutput("output/test1", test1());
 //		testOutput("output/test2", test2());
 		testOutput("output/test3", test3());
+		
+		/*testing Course*/
+		Course testCourse = new Course("ID", "Test Course");
+		testCourse.addQuiz(test1());
+		testOutput("output/testCourse", testCourse);
 	}
 
 }
