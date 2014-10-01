@@ -1,5 +1,10 @@
 package org.adastraeducation.liquiz;
 
+/*
+ * author: Yingzhu
+ * This is for Fillin question
+ */
+
 import java.io.FileNotFoundException;
 
 import org.adastraeducation.liquiz.util.NumberWarningPattern;
@@ -7,10 +12,16 @@ import org.adastraeducation.liquiz.util.NumberWarningPattern;
 public class FillIn extends Question {
 	private Answer answer;
 	
+	//This is a regular expression to give a warning if users' input is not suitable for our rules
 	private NumberWarningPattern warningPattern=null;
 
 	public FillIn(int id, int points, int level) {
 		super(id, points, level);
+	}
+	
+	public FillIn(int id, int points, int level, String answer) {
+		super(id, points, level);
+		this.answer = new Answer(answer);
 	}
 	
 	public FillIn(int id, int points, int level, Answer answer) {
