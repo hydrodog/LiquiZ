@@ -249,6 +249,9 @@ public class Test {
 		/*testing Course*/
 		Course testCourse = new Course("ID", "Test Course");
 		testCourse.addQuiz(test1());
+		testCourse.addQuiz(test2());
+		testCourse.addQuiz(test3());
+		testCourse.addQuiz(test4());
 		testOutput("output/testCourse", testCourse);
 	}
 

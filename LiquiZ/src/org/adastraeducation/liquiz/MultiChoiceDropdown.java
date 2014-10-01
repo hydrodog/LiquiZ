@@ -70,4 +70,9 @@ public class MultiChoiceDropdown extends Question {
 		for (int i = 0; i < answers.length; i++)
 			answers[i].writeXML(b);
 	}
+	@Override
+	public boolean isCorrect(String s) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

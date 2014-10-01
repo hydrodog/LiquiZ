@@ -1,22 +1,27 @@
 package org.adastraeducation.liquiz;
 
+/*
+ * author: Yingzhu
+ * This is for Fillin question
+ */
+
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 import org.adastraeducation.liquiz.util.NumberWarningPattern;
 
 public class FillIn extends Question {
-	private ArrayList<Answer> answers;
+	private Answer answer;
 	
+	//This is a regular expression to give a warning if users' input is not suitable for our rules
 	private NumberWarningPattern warningPattern=null;
 
 	public FillIn(int id, int points, int level) {
 		super(id, points, level);
 	}
 	
-	public FillIn(int id, int points, int level, ArrayList<Answer> answers) {
+	public FillIn(int id, int points, int level, Answer answer) {
 		super(id, points, level);
-		this.answers=answers;
+		this.answer=answer;
 	}
 	
 	
@@ -25,21 +30,21 @@ public class FillIn extends Question {
 		this.warningPattern=warning;
 	}
 	
-	public FillIn(int id, int points, int level, NumberWarningPattern warning, ArrayList<Answer> answers) {
+	public FillIn(int id, int points, int level, NumberWarningPattern warning, Answer answer) {
 		super(id, points, level);
 		this.warningPattern=warning;
-		this.answers=answers;
+		this.answer=answer;
 	}
 	
 	public String getTagName() { return "FillIn"; }
 	
 	
-	public ArrayList<Answer> getAnswers(){
-		return answers;
+	public Answer getAnswer(){
+		return answer;
 	}
 	
-	public void setAnswers(ArrayList<Answer> answers){
-		this.answers=answers;
+	public void setAnswers(Answer answer){
+		this.answer=answer;
 	}
 
 	public NumberWarningPattern getWarningPattern() {
@@ -70,6 +75,12 @@ public class FillIn extends Question {
 	@Override
 	public void writeXML(StringBuilder b) {
 		b.append("<fillin/>");
+	}
+
+	@Override
+	public boolean isCorrect(String s) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 
