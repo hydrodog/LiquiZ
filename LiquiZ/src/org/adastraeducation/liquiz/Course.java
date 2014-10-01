@@ -43,10 +43,10 @@ public class Course implements Displayable {
 	}
 
 	public void writeHTML(StringBuilder b) {
+		b.append("<div class='coursename'>" + name + "</div>");
 		b.append("<div class='quizList " + className + "'>\n");
 		for (Quiz q : quizzes) {
-			b.append("<div class='quizName'>" + q.getName() + "</div>\n");
-			b.append("<div class='quizPol'>" + q.getPolicy() + "</div>\n");
+			b.append("<div class='quizName'>" + q.getName() + "</div>\n"); 
 		}
 		b.append("</div>");
 	}
@@ -61,10 +61,12 @@ public class Course implements Displayable {
 	//TODO: writing out only some quizzes?
 
 	public void writeJS(StringBuilder b) {
+		b.append("quizlist(");
 		for (Quiz q : quizzes) {
-			b.append("quizref(").append(q.getName())
-			.append(',').append(q.getPolicy()).append("')");
+			b.append("quizref('" + q.getName() + "'");
+			b.append(',').append(q.getId()).append(")");
 		}
+		b.append(")");
 	}
 	//for jquery
 }
