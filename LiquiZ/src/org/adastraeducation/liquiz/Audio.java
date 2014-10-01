@@ -3,8 +3,12 @@ package org.adastraeducation.liquiz;
 public class Audio implements Displayable {
 	private String source;
 	private String type;
-	
+
 	public Audio(String source){
+		this.source = source;		
+	}
+
+	public Audio(String source, String type){
 		this.source = source;		
 	}
 	//<source src="horse.ogg" type="audio/ogg">
