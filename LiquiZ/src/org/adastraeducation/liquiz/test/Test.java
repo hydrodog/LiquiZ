@@ -125,12 +125,36 @@ public class Test {
 	
 	public static Quiz test2() {
 		Quiz quiz = new Quiz();
-		Response qc = new Response(
+		Response r1 = new Response(
 			new Displayable[] {
-				new Video("1.mpg"),
-				new MultiChoiceDropdown()
+				new Text("Great job!"),
+				new Video("1.mpg")
 			}
 		);
+		Response r2 = new Response(
+			new Displayable[] {
+				new Text("Not quite right"), 
+				new Video("2.mpg"),
+			}
+		);
+		/*
+		QuestionContainer qc = new QuestionContainer(
+			new Displayable[] {
+				new Text("Fill in the following code"),
+				new FillIn(1, 1, 1),
+				new Text("class A "),
+				new FillIn(2, 1, 1, "{"),
+				new Text("\n  "),
+				new FillIn(3, 1, 1, "private"),
+				new Text(" int x;\n  "),
+				new FillIn(4, 1, 1, "public"),
+				new FillIn(5, 1, 1, "A"),
+				new Text("() {\n"),
+				new Text("  x = 2;\n}\n")
+			}
+		);
+		quiz.addQuestionContainer(qc);
+		*/
 		return quiz;
 	}
 	/*
