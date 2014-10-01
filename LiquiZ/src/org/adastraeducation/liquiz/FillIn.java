@@ -18,10 +18,17 @@ public class FillIn extends Question {
 	public FillIn(int id, int points, int level) {
 		super(id, points, level);
 	}
-	
+	/**
+	 * Convenience Constructor: create a fillin question with a 
+	 * single (correct) string answer (and convert to internal Answer)
+	 * @param id
+	 * @param points
+	 * @param level
+	 * @param answer
+	 */
 	public FillIn(int id, int points, int level, String answer) {
 		super(id, points, level);
-		this.answer = new Answer(answer);
+		this.answer = new Answer(answer, true);
 	}
 	
 	public FillIn(int id, int points, int level, Answer answer) {

@@ -137,7 +137,6 @@ public class Test {
 				new Video("2.mpg"),
 			}
 		);
-		/*
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
 				new Text("Fill in the following code"),
@@ -154,7 +153,6 @@ public class Test {
 			}
 		);
 		quiz.addQuestionContainer(qc);
-		*/
 		return quiz;
 	}
 	/*
@@ -185,23 +183,36 @@ public class Test {
 	// Standard Choice with multipledropdown, multiple radio and multianswers 
 	public static Quiz test4() {
 		Quiz quiz = new Quiz();
+		return quiz;
+		/*
+		StdChoice c1 = new StdChoice("opinion1", new String[] {
+				"strongly agree", "agree", "no opinion", "disagree", "strongly disagree"
+		});
+		StdChoice c2 = new StdChoice("complexity", new String[] {
+				"O(1)", "O(n)", "O(n^2)", "O(n^3)", "O(n log n)"
+		});
+		StdChoice c2 = new StdChoice("colors", new String[] {
+				"red", "yellow", "green", "blue", "orange", "purple"
+		});
+						
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
-				new Text("Can all birds fly ?"),
-				new MultiChoiceDropdown(1, 5, "Poll"),
+				new Text("Global warming exists"),
+				new MultiChoiceDropdown("opinion1"),
+				new Text("Stevens needs more classrooms"),
+				new MultiChoiceDropdown("opinion1"),
+				
 				new Text("What is the complexity of BubbleSort ?"),
-				new MultiChoiceDropdown(1, 5, "Complexity", 2),
+				new MultiChoiceDropdown(1, 5, "complexity", 2),
 				new Text("What is the complexity of QuickSort?"),
-				new MultiChoiceRadio(1, 5, "Complexity"),
+				new MultiChoiceRadio(1, 5, "Complexity", 4),
 				new Text("What are the colors of an apple ?"),
-				new MultiAnswer(1, 5, "Colors", new int []{2,3}),
-				new Text("Name the insects:"),
-				new MultiAnswer(1, 5, "Insects", new int []{3,4,5})
-	
+				new MultiAnswer(1, 5, "colors", new int []{1,3}),	
 			}
 		);
 		quiz.addQuestionContainer(qc);
 		return quiz;
+		*/
 	}
 
 	public static void writeHTML(String filename, Displayable d)
