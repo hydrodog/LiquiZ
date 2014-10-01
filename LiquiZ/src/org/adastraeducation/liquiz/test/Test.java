@@ -125,12 +125,37 @@ public class Test {
 	
 	public static Quiz test2() {
 		Quiz quiz = new Quiz();
-		Response qc = new Response(
+		quiz.setName("This has responses");
+		Response r1 = new Response(
 			new Displayable[] {
-				new Video("1.mpg"),
-				new MultiChoiceDropdown()
+				new Text("Great job!"),
+				new Video("1.mpg")
 			}
 		);
+		Response r2 = new Response(
+			new Displayable[] {
+				new Text("Not quite right"), 
+				new Video("2.mpg"),
+			}
+		);
+		/*
+		QuestionContainer qc = new QuestionContainer(
+			new Displayable[] {
+				new Text("Fill in the following code"),
+				new FillIn(1, 1, 1),
+				new Text("class A "),
+				new FillIn(2, 1, 1, "{"),
+				new Text("\n  "),
+				new FillIn(3, 1, 1, "private"),
+				new Text(" int x;\n  "),
+				new FillIn(4, 1, 1, "public"),
+				new FillIn(5, 1, 1, "A"),
+				new Text("() {\n"),
+				new Text("  x = 2;\n}\n")
+			}
+		);
+		quiz.addQuestionContainer(qc);
+		*/
 		return quiz;
 	}
 	/*
@@ -139,6 +164,7 @@ public class Test {
 	
 	public static Quiz test3() {
 		Quiz quiz = new Quiz();
+		quiz.setName("Multimedia Quiz");
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
 				new Video("video1.mp4",480, 360,"video/mp4"),
@@ -161,6 +187,7 @@ public class Test {
 	// Standard Choice with multipledropdown, multiple radio and multianswers 
 	public static Quiz test4() {
 		Quiz quiz = new Quiz();
+		quiz.setName("Multiple- Quiz");
 		QuestionContainer qc = new QuestionContainer(
 			new Displayable[] {
 				new Text("Can all birds fly ?"),
