@@ -33,7 +33,7 @@ public class Quiz implements Displayable {
 		return s;
 	}
 	private ArrayList<QuestionContainer> qContainers;
-	private Policies policy ; 
+	private Policy policy ; 
 	public int getId() {
 		return id;
 	}
@@ -55,19 +55,19 @@ public class Quiz implements Displayable {
 	
 	public Quiz() {
 		qContainers = new ArrayList<QuestionContainer>();
-		policy = new Policies();
+		policy = new Policy();
 	}
 	
-	public Quiz(Policies plc) {
+	public Quiz(Policy plc) {
 		this.qContainers = new ArrayList<QuestionContainer>();
 		policy = plc;
 	}
 	
-	public Policies getPolicies(){
+	public Policy getPolicy(){
 		return policy;
 	}
 	
-	public void setPolicies(int num,boolean timed, int duration, 
+	public void setPolicy(int num,boolean timed, int duration, 
 			boolean showAns,boolean scored,int grade, boolean shuffle, String accessCode){
 		policy.setAttemptNum(num);
 		policy.setTimed(timed);
@@ -91,10 +91,7 @@ public class Quiz implements Displayable {
 		qContainers.remove(Index);
 	}
 	
-	public void QuizSetUp() {
-		
-	}
-	
+
 	public void writeHTML (StringBuilder b)	{
 		//TODO: everyone add className to each object
 		// if it is null, don't add a classname

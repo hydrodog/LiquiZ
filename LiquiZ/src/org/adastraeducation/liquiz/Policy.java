@@ -1,5 +1,5 @@
 package org.adastraeducation.liquiz;
-public class Policies {
+public class Policy {
 	private int attemptNum;
 	private boolean timed;
 	private int duration;
@@ -73,8 +73,7 @@ public class Policies {
 		this.accessCode = code;
 	}
 	
-	public Policies()
-	{
+	public Policy() {
 		attemptNum = 3;
 		timed = false;
 		duration = 300;
