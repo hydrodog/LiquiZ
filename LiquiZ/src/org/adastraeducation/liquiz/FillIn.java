@@ -3,6 +3,9 @@ package org.adastraeducation.liquiz;
 /*
  * author: Yingzhu
  * This is for Fillin question
+ * I decide the merge regexQuestion and NumberQuestion with Fillin instead of extending it. 
+ * I will temporarily save the original class. If it is proved that they are useless, 
+ * I will delete them at last.
  */
 
 import java.io.FileNotFoundException;

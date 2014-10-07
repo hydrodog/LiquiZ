@@ -3,6 +3,7 @@ package org.adastraeducation.liquiz;
 /*
  * author:Yingzhu
  * This is for Number question
+ * Useless temporarily. Do not use them, Use Fillin instead.
  */
 
 public class ApproximateNumber extends FillIn {

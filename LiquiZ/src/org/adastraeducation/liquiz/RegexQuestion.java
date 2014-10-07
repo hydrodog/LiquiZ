@@ -3,6 +3,11 @@ import org.adastraeducation.liquiz.util.*;
 
 import java.util.ArrayList;
 
+/*
+ * Yingzhu 
+ *  * Useless temporarily. Do not use them, Use Fillin instead.
+ */
+
 public class RegexQuestion extends FillIn {	
 	
 	private QuestionPattern pattern; //The regex pattern that will be used
