@@ -25,4 +25,13 @@ public class QuizPattern {
 		else
 			return false;
 	}
+	
+	public String getValue(String input){
+		Matcher m = p.matcher(input);
+		if(m.matches()){
+			return m.group(1);
+		}
+		else
+			return null;
+	}
 }

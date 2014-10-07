@@ -88,10 +88,14 @@ public class FillIn extends Question {
 	public void writeXML(StringBuilder b) {
 		b.append("<fillin/>");
 	}
-
+	
+	/*
+	 * Whether students' answers are right
+	 */
 	@Override
 	public boolean isCorrect(String s) {
-		// TODO Auto-generated method stub
+		if(s.equals(this.answer.getAns()))
+			return true;
 		return false;
 	}
 
