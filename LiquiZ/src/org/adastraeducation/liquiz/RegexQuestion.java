@@ -5,21 +5,21 @@ import java.util.ArrayList;
 
 public class RegexQuestion extends FillIn {	
 	
-	private QuizPattern pattern; //The regex pattern that will be used
+	private QuestionPattern pattern; //The regex pattern that will be used
 	
 	//constructors
-	public RegexQuestion(int id, int points, int level, String answer, QuizPattern pattern) {
+	public RegexQuestion(int id, int points, int level, String answer, QuestionPattern pattern) {
 		super(id,points,level, answer);
 		this.pattern = pattern;
 	}
 	
-	public RegexQuestion(int id, int points, int level, Answer answer, QuizPattern pattern) {
+	public RegexQuestion(int id, int points, int level, Answer answer, QuestionPattern pattern) {
 		super(id,points,level, answer);
 		this.pattern = pattern;
 	}
 	
 	public RegexQuestion(int id, int points, int level,
-			Answer answer, NumberWarningPattern warningPattern, QuizPattern pattern) {
+			Answer answer, NumberWarningPattern warningPattern, QuestionPattern pattern) {
 		super(id,points,level, warningPattern, answer);
 		this.pattern = pattern;
 	}
@@ -28,11 +28,11 @@ public class RegexQuestion extends FillIn {
 	
 	public String getTagName() { return "RegexQuestion"; }
 	
-	public void setPattern(QuizPattern pattern){
+	public void setPattern(QuestionPattern pattern){
 		this.pattern = pattern;
 	}
 	
-	public QuizPattern getPattern(){
+	public QuestionPattern getPattern(){
 		return pattern;
 	}
 	

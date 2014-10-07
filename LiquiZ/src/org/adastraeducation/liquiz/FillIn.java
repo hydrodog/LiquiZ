@@ -8,15 +8,21 @@ package org.adastraeducation.liquiz;
 import java.io.FileNotFoundException;
 
 import org.adastraeducation.liquiz.util.NumberWarningPattern;
+import org.adastraeducation.liquiz.util.QuestionPattern;
 
 public class FillIn extends Question {
 	private Answer answer;
+	
+	private QuestionPattern pattern;
+	private ApproximateNumber appro;
 	
 	//This is a regular expression to give a warning if users' input is not suitable for our rules
 	private NumberWarningPattern warningPattern=null;
 
 	public FillIn(int id, int points, int level) {
 		super(id, points, level);
+		pattern = null;
+		appro = null;
 	}
 	/**
 	 * Convenience Constructor: create a fillin question with a 

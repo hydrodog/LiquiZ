@@ -8,11 +8,11 @@ package org.adastraeducation.liquiz.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class QuizPattern {
+public class QuestionPattern {
 	private String regex;
 	Pattern p;
 	
-	public QuizPattern(String regex){
+	public QuestionPattern(String regex){
 		this.regex=regex;
 		p=Pattern.compile(regex);
 	}
