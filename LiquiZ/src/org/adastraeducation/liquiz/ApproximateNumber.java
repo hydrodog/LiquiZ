@@ -29,11 +29,11 @@ public class ApproximateNumber extends FillIn {
 		this.number = number;
 	}
 	
-	public double getAppro(){
+	public double getApproximate(){
 		return appro;
 	}
 	
-	public void setAppro(double appro){
+	public void setApproximate(double appro){
 		this.appro = appro;
 	}
 }

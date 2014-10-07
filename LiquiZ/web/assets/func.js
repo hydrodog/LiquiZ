@@ -6,7 +6,7 @@
 /*
  *warning pattern
  */
-function showWarning(id,n) {
+function showNumberWarning(id,n) {
     var x = $("#"+id).val();
     $("#FW"+id).empty();
     

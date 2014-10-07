@@ -23,11 +23,6 @@ public class RegexQuestion extends FillIn {
 		this.pattern = pattern;
 	}
 	
-	public RegexQuestion(int id, int points, int level,
-			Answer answer, NumberWarningPattern warningPattern, QuestionPattern pattern) {
-		super(id,points,level, warningPattern, answer);
-		this.pattern = pattern;
-	}
 	
 
 	
