@@ -1,17 +1,15 @@
-package org.adastraeducation.liquiz;
+package org.adastraeducation.liquiz.util;
 
 /*
  * author:Yingzhu
  * This is for Number question
- * Useless temporarily. Do not use them, Use Fillin instead.
  */
 
-public class ApproximateNumber extends FillIn {
+public class Number {
 	private double number;
 	private double appro;
 	
-	public ApproximateNumber(int id, int points, int level, double number, double appro){
-		super(id,points,level);
+	public Number(double number, double appro){
 		this.number=number;
 		this.appro=appro;
 	}
@@ -29,11 +27,11 @@ public class ApproximateNumber extends FillIn {
 		this.number = number;
 	}
 	
-	public double getApproximate(){
+	public double getAppro(){
 		return appro;
 	}
 	
-	public void setApproximate(double appro){
+	public void setAppro(double appro){
 		this.appro = appro;
 	}
 }

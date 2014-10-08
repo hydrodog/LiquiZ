@@ -1,6 +1,6 @@
 package org.adastraeducation.liquiz.util;
 
-public class NumberWarningPattern {
+public class NumberWarningPattern implements WarningPattern {
 	
 	private  int limit;
 	
@@ -14,6 +14,11 @@ public class NumberWarningPattern {
 
 	public void setLimit(int limit) {
 		this.limit = limit;
+	}
+
+	@Override
+	public String getTag() {
+		return "number";
 	}
 	
 	

@@ -6,8 +6,8 @@ package org.adastraeducation.liquiz.util;
  */
 
 public class SpecializedPattern {
-	public static QuizPattern MASS = new QuizPattern("([0-9|.]+)(kg|kilogram)");
-	public static QuizPattern LENGTH = new QuizPattern("([0-9|.]+)(m|meter)");
-	public static QuizPattern TIME = new QuizPattern("([0-9|.]+)(s|second)");
-	public static QuizPattern VELOCITY = new QuizPattern("([0-9|.]+)(m\\/s|meter\\/second)");
+	public static QuestionPattern MASS = new QuestionPattern("([0-9|.]+)(kg|kilogram)");
+	public static QuestionPattern LENGTH = new QuestionPattern("([0-9|.]+)(m|meter)");
+	public static QuestionPattern TIME = new QuestionPattern("([0-9|.]+)(s|second)");
+	public static QuestionPattern VELOCITY = new QuestionPattern("([0-9|.]+)(m\\/s|meter\\/second)");
 }
