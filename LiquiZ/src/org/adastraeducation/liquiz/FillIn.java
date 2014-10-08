@@ -7,7 +7,10 @@ package org.adastraeducation.liquiz;
  * I will temporarily save the original class. If it is proved that they are useless, 
  * I will delete them at last.
  */
-
+/*
+ * for ApproximateNumber Question, only 1 number is allowed to appear in the question.
+ * For instance, "12 fadasd" is right. However, "13 KJKAJD 24" is wrong. Only 13 may be detected and 24 may be ignored. 
+ */
 import java.io.FileNotFoundException;
 
 import org.adastraeducation.liquiz.util.NumberWarningPattern;
@@ -58,6 +61,7 @@ public class FillIn extends Question {
 	
 	public FillIn(int id, int points, int level, Answer answer, WarningPattern wp, QuestionPattern qp, Number number){
 		super(id,points, level);
+		this.answer = answer;
 		this.warningPattern=wp;
 		this.pattern = qp;
 		this.appro = number;
@@ -146,10 +150,39 @@ public class FillIn extends Question {
 	 * Whether students' answers are right
 	 */
 	@Override
+	
 	public boolean isCorrect(String s) {
-		if(s.equals(this.answer.getAns()))
-			return true;
-		return false;
+		if(pattern==null&&appro==null){
+			if(s.equals(this.answer.getAns()))
+				return true;
+			else
+				return false;
+		}
+		else if(pattern==null&&appro!=null){
+			String ans = this.answer.getAns();
+			double target = Double.parseDouble(ans);
+			if(appro.equal(target))
+				return true;
+			else
+				return false;
+		}
+		else if(pattern!=null&&appro==null){
+			String ans = this.answer.getAns();
+			if(pattern.isMatch(ans))
+				return true;
+			else
+				return false;
+		}
+		else{
+			String ans = this.answer.getAns();
+			if(pattern.isMatch(ans)){
+				String temp = pattern.getValue(ans);
+				double target = Double.parseDouble(ans);
+				if(appro.equal(target))
+					return true;
+			}
+			return false;
+		}
 	}
 
 }

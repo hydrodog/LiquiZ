@@ -18,7 +18,7 @@ public class QuestionPattern {
 	}
 	
 	//match the input whether they are right
-	public boolean match(String input){
+	public boolean isMatch(String input){
 		Matcher m = p.matcher(input);
 		if(m.matches())
 			return true;
@@ -29,9 +29,14 @@ public class QuestionPattern {
 	public String getValue(String input){
 		Matcher m = p.matcher(input);
 		if(m.matches()){
-			return m.group(1);
+			Pattern p2 = Pattern.compile("[0-9]+|.");
+			for(int i=1;i<=m.groupCount();i++){
+				String temp = m.group(i);
+				Matcher m2 = p2.matcher(temp);
+				if(m2.matches())
+					return temp;
+			}
 		}
-		else
-			return null;
+		return null;
 	}
 }
