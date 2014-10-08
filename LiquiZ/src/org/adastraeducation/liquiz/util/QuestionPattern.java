@@ -26,7 +26,7 @@ public class QuestionPattern {
 			return false;
 	}
 	
-	public String getValue(String input){
+	public String getValue(String input){    // get the number in the input
 		Matcher m = p.matcher(input);
 		if(m.matches()){
 			Pattern p2 = Pattern.compile("[0-9]+|.");

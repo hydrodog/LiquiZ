@@ -65,7 +65,7 @@ public class FillIn extends Question {
 		pattern = null;
 		appro = null;
 	}
-	
+	// the new constructor including all of the elements
 	public FillIn(int id, int points, int level, Answer answer, WarningPattern wp, QuestionPattern qp, Number number){
 		super(id,points, level);
 		this.answer = answer;
@@ -98,12 +98,14 @@ public class FillIn extends Question {
 	public boolean hasPattern() {
 		return hasPattern;
 	}
+	// it is private
 	private void setHasPattern(boolean hasPattern) {
 		this.hasPattern = hasPattern;
 	}
 	public boolean isNumber() {
 		return isNumber;
 	}
+	// it is private
 	private void setIsNumber(boolean isNumber) {
 		this.isNumber = isNumber;
 	}
@@ -115,6 +117,7 @@ public class FillIn extends Question {
 		this.appro = appro;
 		setIsNumber(true);
 	}
+	//remove function
 	public void removeAppro(){
 		this.appro=null;
 		setIsNumber(false);
@@ -126,6 +129,7 @@ public class FillIn extends Question {
 		this.pattern = pattern;
 		setHasPattern(true);
 	}
+	//remove function
 	public void removePattern(){
 		this.pattern=null;
 		setHasPattern(false);
@@ -159,13 +163,13 @@ public class FillIn extends Question {
 	@Override
 	
 	public boolean isCorrect(String s) {
-		if(pattern==null&&appro==null){
+		if(pattern==null&&appro==null){      //it is a fillin question
 			if(s.equals(this.answer.getAns()))
 				return true;
 			else
 				return false;
 		}
-		else if(pattern==null&&appro!=null){
+		else if(pattern==null&&appro!=null){   // it is a regex question
 			String ans = this.answer.getAns();
 			double target = Double.parseDouble(ans);
 			if(appro.equal(target))
@@ -173,14 +177,14 @@ public class FillIn extends Question {
 			else
 				return false;
 		}
-		else if(pattern!=null&&appro==null){
+		else if(pattern!=null&&appro==null){   // it is a Number Question
 			String ans = this.answer.getAns();
 			if(pattern.isMatch(ans))
 				return true;
 			else
 				return false;
 		}
-		else{
+		else{                               // it is a RegexNumber Question
 			String ans = this.answer.getAns();
 			if(pattern.isMatch(ans)){
 				String temp = pattern.getValue(ans);
