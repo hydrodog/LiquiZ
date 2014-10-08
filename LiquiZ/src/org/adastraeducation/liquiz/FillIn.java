@@ -8,6 +8,9 @@ package org.adastraeducation.liquiz;
  * I will delete them at last.
  */
 /*
+ * Regex Questions and Number Questions are now merged with Fillin Questions.
+ */
+/*
  * for ApproximateNumber Question, only 1 number is allowed to appear in the question.
  * For instance, "12 fadasd" is right. However, "13 KJKAJD 24" is wrong. Only 13 may be detected and 24 may be ignored. 
  */
@@ -21,8 +24,12 @@ import org.adastraeducation.liquiz.util.WarningPattern;
 public class FillIn extends Question {
 	private Answer answer;
 	
+	// add attibutes to merge Regex Questions.
+	// If hasPattern is true and pattern!=null, it means it is a fillin quesiton also a Regex Question
 	private QuestionPattern pattern;
 	private boolean hasPattern;
+	// add attributes to merge Number question
+	// If isNumber is true and appro!=null, it means it is a fillin question also a Number Question.
 	private Number appro;
 	private boolean isNumber;
 	
