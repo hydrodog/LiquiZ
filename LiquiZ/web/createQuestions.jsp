@@ -20,7 +20,7 @@
             <div id="common_attribute" align="left">
                 Level<input type="text" name="level">
                 Points<input type="text" name="points">
-                Answer<input type="text" name="answer"    
+                Answer<input type="text" name="answer">   
             </div>
             <div id="question_text" align="left">
                 Question Text</br>
