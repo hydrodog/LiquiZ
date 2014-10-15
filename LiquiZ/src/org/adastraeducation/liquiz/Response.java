@@ -41,7 +41,7 @@ public class Response implements Displayable {
 	}
 
 	public void writeJS (StringBuilder b) {
-		b.append("{title:... [");
+		b.append("{title: 'Response', content:[");
 		if (displayables.size() > 0) {
 			displayables.get(0).writeJS(b);
 			if (displayables.size() > 1) {

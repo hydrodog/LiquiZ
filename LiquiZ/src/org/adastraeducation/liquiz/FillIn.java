@@ -73,7 +73,16 @@ public class FillIn extends Question {
 		this.pattern = qp;
 		this.appro = number;
 	}
-	
+
+	// the new constructor including all of the elements
+	public FillIn(int points, int level, Answer answer, WarningPattern wp, QuestionPattern qp, Number number){
+		super(points, level);
+		this.answer = answer;
+		this.warningPattern=wp;
+		this.pattern = qp;
+		this.appro = number;
+	}
+
 	
 	//get Tag
 	public String getTagName() { return "FillIn"; }

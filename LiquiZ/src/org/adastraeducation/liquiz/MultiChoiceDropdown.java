@@ -28,7 +28,7 @@ public class MultiChoiceDropdown extends Question {
 		super(level, points);
 		stdchoice = new StdChoice(stdChoiceName);
 	}
-	// added a new method to accomodate the right answer choice
+	// added a new method to accommodate the right answer choice
 	public MultiChoiceDropdown(int level, int points, String stdChoiceName, int rightAns) {
 		super(level, points);
 		stdchoice = new StdChoice(stdChoiceName, rightAns);
