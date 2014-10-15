@@ -5,7 +5,7 @@
         <title>CreateQuestions</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
         </script>
-        <script src="../web/assets/func.js"></script>
+        <script src="func.js"></script>
     </head>
     <body>
         <form>
@@ -59,7 +59,7 @@
             <div id="multichoice_attribute" align="left" style= "display:none">
                 <div>
                     Numbers of choices
-                    <input type="text" name="multichoice_number" onblur="createChoices(this)">
+                    <input type="text" name="multichoice_number" onchange="createChoices(this)">
                 </div>
                 <div id="choices"></div>
             </div>
