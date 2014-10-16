@@ -23,6 +23,7 @@
    		//TODO: do nothing and level will default to 1 if error?
    	}
 
+	//Question q = Util.buildQuestion(quiz, request);
     Question q = null;
 	String questType = request.getParameter("question_type");
 	if (questType.equals("FillIn")) {
