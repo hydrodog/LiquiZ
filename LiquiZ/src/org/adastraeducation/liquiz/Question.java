@@ -1,4 +1,5 @@
 package org.adastraeducation.liquiz;
+import java.util.HashMap;
 
 public abstract class Question implements Displayable {
 	private int id,points,level;
@@ -8,17 +9,23 @@ public abstract class Question implements Displayable {
 		count = 0;
 	}
 	
+	private static HashMap<Integer,Question> questionDictionary = new HashMap<Integer,Question>();
+	private void setHashId(int id){
+		this.id = id;
+		questionDictionary.put(this.id, this);
+	}
 	public Question() {}
 	public Question (int id, int points, int level) {
-		this.id=id;
 		this.points= points;
 		this.level= level;
+		setHashId(id);
 	}	
 	
 	public Question(int points, int level) {
 		this.id = count++;
 		this.points = points;
 		this.level = level;
+		setHashId(id);
 	}
 		
 	public int getPoints() {

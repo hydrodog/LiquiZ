@@ -112,10 +112,10 @@ public class Quiz implements Displayable {
 	}
 	
 	public void writeJS (StringBuilder b) {
-		b.append("{ title: '', ... [");
+		b.append("{ title: 'A new quiz', className: 'class', content: [");
 		for(QuestionContainer qc: this.qContainers) {
 			qc.writeJS(b);
 		}
-		b.append("]");
+		b.append("]}");
 	}
 }
