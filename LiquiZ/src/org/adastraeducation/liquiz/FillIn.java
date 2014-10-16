@@ -14,7 +14,6 @@ package org.adastraeducation.liquiz;
  * for ApproximateNumber Question, only 1 number is allowed to appear in the question.
  * For instance, "12 fadasd" is right. However, "13 KJKAJD 24" is wrong. Only 13 may be detected and 24 may be ignored. 
  */
-import java.io.FileNotFoundException;
 
 import org.adastraeducation.liquiz.util.NumberWarningPattern;
 import org.adastraeducation.liquiz.util.QuestionPattern;
@@ -197,7 +196,7 @@ public class FillIn extends Question {
 			String ans = this.answer.getAns();
 			if(pattern.isMatch(ans)){
 				String temp = pattern.getValue(ans);
-				double target = Double.parseDouble(ans);
+				double target = Double.parseDouble(temp);
 				if(appro.equal(target))
 					return true;
 			}
