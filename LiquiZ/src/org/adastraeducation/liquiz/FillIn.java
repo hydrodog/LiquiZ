@@ -1,4 +1,9 @@
-package org.adastraeducation.liquiz;
+
+
+
+
+
+ package org.adastraeducation.liquiz;
 
 /*
  * author: Yingzhu
@@ -34,6 +39,8 @@ public class FillIn extends Question {
 	
 	//This is a regular expression to give a warning if users' input is not suitable for our rules
 	private WarningPattern warningPattern;
+	
+	public FillIn(){}
 
 	public FillIn(int id, int points, int level) {
 		super(id, points, level);
@@ -49,6 +56,7 @@ public class FillIn extends Question {
 	 * @param level
 	 * @param answer
 	 */
+
 	public FillIn(int id, int points, int level, String answer) {
 		super(id, points, level);
 		this.answer = new Answer(answer, true);

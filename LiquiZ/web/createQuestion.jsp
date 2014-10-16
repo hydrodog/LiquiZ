@@ -34,7 +34,7 @@
                     <select name="warning_type" size="1">
                         <option value="NumberWarningPattern" selected>FillIn</option>
                     </select>
-                    Number Limits<input type="text" name="waringNumberLimit">
+                    Number Limits<input type="text" name="warningNumberLimit">
                 </div>
                 
                 <div style="clear:both"></div>             
