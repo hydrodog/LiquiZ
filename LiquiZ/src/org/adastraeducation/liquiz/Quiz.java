@@ -52,7 +52,16 @@ public class Quiz implements Displayable {
 
 	private int id; // unique id for db and XML
 	private String name; // display name, possibly per Course?
-	
+	public int getQuestionContainerCount() {
+		return qContainers.size();
+	}
+	public int getQuestionCount() {
+		int count = 0;
+		for (QuestionContainer q : qContainers) {
+			count += q.getQuestionCount();
+		}
+		return count;
+	}
 	public Quiz() {
 		qContainers = new ArrayList<QuestionContainer>();
 		policy = new Policy();

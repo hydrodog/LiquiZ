@@ -15,6 +15,16 @@ public class QuestionContainer implements Displayable {
 	public ArrayList<Displayable> getDisplayables() {
 		return this.displayables;
 	}
+	
+	public int getQuestionCount() {
+		int count = 0;
+		for (Displayable d : displayables) {
+			if (d instanceof Question) {
+				count++;
+			}
+		}
+		return count;
+	}
 
 	public void add(Displayable d){
 		displayables.add(d);

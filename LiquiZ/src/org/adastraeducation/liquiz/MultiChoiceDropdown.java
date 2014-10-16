@@ -12,8 +12,6 @@ public class MultiChoiceDropdown extends Question {
 	public MultiChoiceDropdown(int level, int points) {
 		super(level, points);
 	}
-
-
 	public MultiChoiceDropdown(int id, int level, int points, Answer[] answers) {
 		super(id, level, points);
 		this.answers = answers.clone();
@@ -28,7 +26,7 @@ public class MultiChoiceDropdown extends Question {
 		super(level, points);
 		stdchoice = new StdChoice(stdChoiceName);
 	}
-	// added a new method to accomodate the right answer choice
+	// added a new method to accommodate the right answer choice
 	public MultiChoiceDropdown(int level, int points, String stdChoiceName, int rightAns) {
 		super(level, points);
 		stdchoice = new StdChoice(stdChoiceName, rightAns);
@@ -36,6 +34,13 @@ public class MultiChoiceDropdown extends Question {
 
 	public String getTagName() {
 		return "MultiChoice";
+	}
+
+	public Answer[] getAnswers() {
+		return answers;
+	}
+	public void setAnswers(Answer[] answers) {
+		this.answers = answers;
 	}
 
 	public void writeHTML(StringBuilder b) {
