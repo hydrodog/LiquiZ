@@ -5,10 +5,10 @@
         <title>CreateQuestions</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
         </script>
-        <script src="func.js"></script>
+        <script src="assets/func.js"></script>
     </head>
     <body>
-        <form>
+        <form method="GET" action="addQuestion.jsp">
             <div id="div_title" align="left">
                 Title  <input type="text" name="title">
                 QuestionType
@@ -18,8 +18,8 @@
                 </select>
             </div>
             <div id="common_attribute" align="left">
-                Level<input type="text" name="level">
-                Points<input type="text" name="points">
+                Level<input type="text" name="level" value="1">
+                Points<input type="text" name="points" = value="1">
                 Answer<input type="text" name="answer">   
             </div>
             <div id="question_text" align="left">
@@ -28,7 +28,7 @@
             </div>
             <div id="fillin_attribute" align="left" >
                 <div style="float:left">
-                    <input type="checkbox" name="warningPattern" onclick="showWarningPatternAttribute(this)">WarngingPattern</br>
+                    <input type="checkbox" name="warningPattern" onclick="showWarningPatternAttribute(this)">WarningPattern</br>
                 </div>
                 <div id="warningPattern_attribute" style="float:left;display:none; margin-left:60px;">
                     <select name="warning_type" size="1">
