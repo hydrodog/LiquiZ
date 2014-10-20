@@ -55,4 +55,12 @@ public class User {
 	public boolean anyAllowed(int requestedPerm) {
 		return (permissions & requestedPerm) != 0;		
 	}
+	public boolean isLoggedIn() {
+		if (id == null || passwd == null)
+			return false;
+		return id.equals("test") && passwd.equals("test");
+	}
+	public static void main(String[]a) {
+		System.out.println("test");
+	}
 }
