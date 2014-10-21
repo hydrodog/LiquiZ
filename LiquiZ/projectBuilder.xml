@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="WebApp.makejar" default="makejar" basedir=".">
-  <property name="tomcat.dir" value="/Users/wyz/Documents/tomcat/webapps"/>
-  <target name ="makejar" description="Create a jar for the HW project">
-    <jar jarfile="quiz.jar" basedir="bin">
-    	<fileset dir="conf"/>
-    </jar>
-    <copy todir="${tomcat.dir}/quiz/WEB-INF/lib">
-    	<fileset file="${basedir}/quiz.jar"/>	
+<project name="LiquiZ.makejar" default="makejar" basedir=".">
+  <property name="tomcat.dir" value="c:/bin/tomcat8/webapps"/>
+  <target name ="makejar" description="Create jar for Tomcat deployment">
+    <jar jarfile="liquiz.jar" basedir="bin"/>
+    <copy todir="${tomcat.dir}/liquiz/WEB-INF/lib">
+    	<fileset file="${basedir}/liquiz.jar"/>	
     </copy>
     <echo>about to Copy</echo>
-    <copy todir="${tomcat.dir}/quiz/">
-    	<fileset file="${basedir}/web/*.jsp"/>	
+    <copy todir="${tomcat.dir}/liquiz/">
+    	<fileset file="${basedir}/web/*"/>	
+    	<fileset file="${basedir}/web/assets/js/*.js"/>	
+    	<fileset file="${basedir}/web/assets/css/*"/>	
+    	<fileset file="${basedir}/web/assets/audio/*"/>	
+    	<fileset file="${basedir}/web/assets/video/*"/>	
     </copy>
     <echo>Copying into ${basedir}</echo>
   </target>
