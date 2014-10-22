@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" %>
 <%@ page import="org.adastraeducation.liquiz.*"%>
+<%@ page import="org.adastraeducation.liquiz.util.*"%>
 
 <jsp:useBean id="quiz" class="org.adastraeducation.liquiz.Quiz" scope="session"/>
 
 <%
-	Util.addQuestion(quiz, request);
+	Util util = new Util();
+	util.addQuestion(quiz, request);
     
 %>
 
-<%= Util.showQuiz(quiz) %>
+<%= util.showQuiz(quiz) %>
 Quiz now has: <%= quiz.getQuestionCount() %> questions in <%= quiz.getQuestionContainerCount() %> question containers.
