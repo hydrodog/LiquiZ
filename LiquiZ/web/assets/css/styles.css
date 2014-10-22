@@ -26,3 +26,19 @@ input {
 .dropdown {
   
 }
+
+.defaultColor{
+    
+}
+
+.red{
+    background: #FF0000;
+}
+
+.blue{
+    background: #2828FF;
+}
+
+.green{
+    background: #1AFD9C;
+}
