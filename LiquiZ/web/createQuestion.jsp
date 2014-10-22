@@ -8,6 +8,13 @@
         <script src="assets/func.js"></script>
     </head>
     <body>
+    	 Choose your color for blank
+         <select name="question_type" size="1" onchange="setColor(this)">
+            <option value="default" selected>default</option>
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+            <option value="green">greeb</option>
+        </select>
         <form method="GET" action="addQuestion.jsp">
             <div id="div_title" align="left">
                 Title  <input type="text" name="title">
