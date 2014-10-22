@@ -13,7 +13,7 @@
             <option value="default" selected>default</option>
             <option value="red">red</option>
             <option value="blue">blue</option>
-            <option value="green">greeb</option>
+            <option value="green">green</option>
         </select>
         <form method="GET" action="addQuestion.jsp">
             <div id="div_title" align="left">
