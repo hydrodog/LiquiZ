@@ -260,7 +260,7 @@ DROP VIEW IF EXISTS `mydb`.`ViewQuiz` ;
 DROP TABLE IF EXISTS `mydb`.`ViewQuiz`;
 USE `mydb`;
 CREATE  OR REPLACE VIEW `ViewQuiz` AS
-SELECT QuizzesQuesCons.QuesCon, Questions.QuesID, DispElSeq.Element
+SELECT QuizzesQuesCons.QuesCon, Questions.QuesID, Questions.Type, DispElSeq.Element, DispElSeq.Type
 FROM QuizzesQuesCons
 LEFT JOIN QuesConElements ON QuizzesQuesCons.QuesCon = QuesConElements.QuesCon
 LEFT JOIN Questions ON QuesConElements.Ques = Questions.QuesID
@@ -275,7 +275,7 @@ DROP VIEW IF EXISTS `mydb`.`ViewQuizWAns` ;
 DROP TABLE IF EXISTS `mydb`.`ViewQuizWAns`;
 USE `mydb`;
 CREATE  OR REPLACE VIEW `ViewQuizWAns` AS
-SELECT QuizzesQuesCons.QuesCon, DispElSeq.Element, Questions.QuesID, Questions.Points, Answers.AnsID
+SELECT QuizzesQuesCons.QuesCon, DispElSeq.Element, DispElSeq.Type, Questions.QuesID, Questions.Points, Answers.AnsID
 FROM QuizzesQuesCons
 LEFT JOIN QuesConElements ON QuizzesQuesCons.QuesCon = QuesConElements.QuesCon
 LEFT JOIN Questions ON QuesConElements.Ques = Questions.QuesID
